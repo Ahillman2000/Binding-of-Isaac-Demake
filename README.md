@@ -1,1 +1,1 @@
-# Bing-of-Isaac-Demake
+# Binding-of-Isaac-Demake
