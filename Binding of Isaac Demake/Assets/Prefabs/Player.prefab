@@ -70,9 +70,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6588356293312385915}
   - component: {fileID: 6588356293312385892}
+  - component: {fileID: 8175350435661688574}
+  - component: {fileID: 6747942555589333572}
   - component: {fileID: 6588356293312385893}
   - component: {fileID: 6588356293312385914}
-  - component: {fileID: 6588356293312385913}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -150,6 +151,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &8175350435661688574
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588356293312385894}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!61 &6747942555589333572
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588356293312385894}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.9}
+    newSize: {x: 0.5, y: 0.9}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.9}
+  m_EdgeRadius: 0
 --- !u!114 &6588356293312385893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,19 +231,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 16c632c86b5002145bb99b16d169b31b, type: 3}
   - {fileID: 21300000, guid: b142fe15c7c06774ba769ea20b3ef31a, type: 3}
   - {fileID: 21300000, guid: 166aa1f14d86ec5409bf7afc46c1bfd3, type: 3}
---- !u!65 &6588356293312385913
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6588356293312385894}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.9, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6588356293376991112
 GameObject:
   m_ObjectHideFlags: 0

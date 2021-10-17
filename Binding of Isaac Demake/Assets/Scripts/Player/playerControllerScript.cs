@@ -34,7 +34,7 @@ public class playerControllerScript : MonoBehaviour
         spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // cache values for movement input
         Vector2 movementValues = movement.ReadValue<Vector2>();
