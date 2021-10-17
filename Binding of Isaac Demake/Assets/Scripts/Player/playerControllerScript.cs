@@ -13,8 +13,8 @@ public class playerControllerScript : MonoBehaviour
 
     private PlayerScript playerScript;
 
-    enum PlayerDirection {UP, DOWN, LEFT, RIGHT};
-    PlayerDirection playerDirection = PlayerDirection.DOWN;
+    public enum PlayerDirection {UP, DOWN, LEFT, RIGHT};
+    public PlayerDirection playerDirection = PlayerDirection.DOWN;
 
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite[] sprites;
