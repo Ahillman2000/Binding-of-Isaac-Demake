@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    [SerializeField] private int maxLives = 3;
-    private int currentLives              = 0;
+    [SerializeField] private int maxLives       = 3;
+    private int currentLives                    = 0;
 
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed        = 3f;
 
-    [SerializeField] private int attackDamage = 1;
+    [SerializeField] private int attackDamage   = 1;
 
     [SerializeField] private float shotVelocity = 1.0f;
 

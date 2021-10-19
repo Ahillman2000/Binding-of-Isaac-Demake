@@ -9,6 +9,8 @@ public class playerControllerScript : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private InputAction movement;
 
+    private float deadzoneValue = 0.5f;
+
     private PlayerScript playerScript;
 
     enum PlayerDirection {UP, DOWN, LEFT, RIGHT};
@@ -39,24 +41,28 @@ public class playerControllerScript : MonoBehaviour
         // cache values for movement input
         Vector2 movementValues = movement.ReadValue<Vector2>();
 
-        if (movementValues.x == -1)
+        if (movementValues.x <= -deadzoneValue)
         {
             playerDirection = PlayerDirection.LEFT;
+            this.transform.position += new Vector3(-1, 0, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
-        else if (movementValues.x == 1)
+        else if (movementValues.x >= deadzoneValue)
         {
             playerDirection = PlayerDirection.RIGHT;
+            this.transform.position += new Vector3(1, 0, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
-        else if (movementValues.y == 1)
+        else if (movementValues.y >= deadzoneValue)
         {
             playerDirection = PlayerDirection.UP;
+            this.transform.position += new Vector3(0, 1, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
-        else if (movementValues.y == -1)
+        else if (movementValues.y <= -deadzoneValue)
         {
             playerDirection = PlayerDirection.DOWN;
+            this.transform.position += new Vector3(0, -1, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
-        
-        this.transform.position += new Vector3(movementValues.x, movementValues.y, 0) * playerScript.GetSpeed() * Time.deltaTime;
+
+        Debug.Log(movementValues);
 
         // change sprites depending on movement input
         ChangeSprite();
@@ -64,24 +70,14 @@ public class playerControllerScript : MonoBehaviour
 
     private void ChangeSprite()
     {
-        switch (playerDirection)
+        spriteRenderer.sprite = playerDirection switch
         {
-            case PlayerDirection.DOWN:
-                spriteRenderer.sprite = sprites[0];
-                break;
-            case PlayerDirection.UP:
-                spriteRenderer.sprite = sprites[1];
-                break;
-            case PlayerDirection.LEFT:
-                spriteRenderer.sprite = sprites[2];
-                break;
-            case PlayerDirection.RIGHT:
-                spriteRenderer.sprite = sprites[3];
-                break;
-            default:
-                spriteRenderer.sprite = sprites[0];
-                break;
-        }
+            PlayerDirection.DOWN => sprites[0],
+            PlayerDirection.UP => sprites[1],
+            PlayerDirection.LEFT => sprites[2],
+            PlayerDirection.RIGHT => sprites[3],
+            _ => sprites[0],
+        };
     }
 
     private void OnDisable()
