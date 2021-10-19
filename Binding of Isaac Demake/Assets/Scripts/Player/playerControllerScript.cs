@@ -9,7 +9,7 @@ public class playerControllerScript : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private InputAction movement;
 
-    private float deadzoneValue = 0.5f;
+    private readonly float deadzoneValue = 0.5f;
 
     private PlayerScript playerScript;
 
@@ -38,6 +38,14 @@ public class playerControllerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        Move();
+
+        // change sprites depending on movement input
+        ChangeSprite();
+    }
+
+    private void Move()
+    {
         // cache values for movement input
         Vector2 movementValues = movement.ReadValue<Vector2>();
 
@@ -61,11 +69,6 @@ public class playerControllerScript : MonoBehaviour
             playerDirection = PlayerDirection.DOWN;
             this.transform.position += new Vector3(0, -1, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
-
-        Debug.Log(movementValues);
-
-        // change sprites depending on movement input
-        ChangeSprite();
     }
 
     private void ChangeSprite()

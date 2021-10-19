@@ -7,12 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerShooting : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
-    private InputAction movement;
-
-    private PlayerScript playerScript;
 
     public GameObject tearsPrefab;
-
     public Transform firePoint; 
 
     private void Awake()
@@ -30,6 +26,11 @@ public class PlayerShooting : MonoBehaviour
     {
         //Debug.Log("Action Done");
 
+        FireTear();
+    }
+
+    private void FireTear()
+    {
         Instantiate(tearsPrefab, firePoint.position, firePoint.rotation);
     }
 

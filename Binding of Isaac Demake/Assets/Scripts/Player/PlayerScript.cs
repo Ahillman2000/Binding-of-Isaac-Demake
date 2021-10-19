@@ -63,7 +63,6 @@ public class PlayerScript : MonoBehaviour
         return shotVelocity;
     }
 
-
     public void TakeDamage(int _damage)
     {
         currentLives -= _damage;

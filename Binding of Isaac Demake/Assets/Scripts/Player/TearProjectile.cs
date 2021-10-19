@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class TearProjectile : MonoBehaviour
 {
-    public float speed = 20f;
     public Rigidbody2D RB;
 
-    GameObject player;
-    playerControllerScript playerControllerScript;
+    private GameObject player;
+    private PlayerScript playerScript;
+    private playerControllerScript playerControllerScript;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<PlayerScript>();
         playerControllerScript = player.GetComponent<playerControllerScript>();
 
         //Debug.Log(playerControllerScript.playerDirection);
@@ -20,27 +21,25 @@ public class TearProjectile : MonoBehaviour
         switch (playerControllerScript.playerDirection)
         {
             case playerControllerScript.PlayerDirection.DOWN:
-                RB.velocity = transform.up * speed * -1;
+                RB.velocity = transform.up * playerScript.GetShotVelocity() * -1;
                 break;
             case playerControllerScript.PlayerDirection.UP:
-                RB.velocity = transform.up * speed; 
+                RB.velocity = transform.up * playerScript.GetShotVelocity(); 
                 break;
             case playerControllerScript.PlayerDirection.LEFT:
-                RB.velocity = transform.right * speed * -1;
+                RB.velocity = transform.right * playerScript.GetShotVelocity() * -1;
                 break;
             case playerControllerScript.PlayerDirection.RIGHT:
-                RB.velocity = transform.right * speed;
+                RB.velocity = transform.right * playerScript.GetShotVelocity();
                 break;
             default:
-                RB.velocity = transform.up * speed * -1;
+                RB.velocity = transform.up * playerScript.GetShotVelocity() * -1;
                 break;
         }
-
     }
 
     void Update()
     {
         Destroy(this.gameObject, 3f);
     }
-
 }
