@@ -472,17 +472,8 @@ MonoBehaviour:
   - {fileID: 4578688863088630655, guid: b8aa9fdf7bea89e44b6d33802a58c9b2, type: 3}
   - {fileID: 8556119444259478807, guid: e69790dc1269b244c822cd7fa97aeb61, type: 3}
   closed_room: {fileID: 1080422877357236648, guid: 78c8626a0b3502b4492a771bcf0d9cb0, type: 3}
-  rooms:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  room_count: 10
+  rooms: []
 --- !u!1001 &6588356293518377707
 PrefabInstance:
   m_ObjectHideFlags: 0

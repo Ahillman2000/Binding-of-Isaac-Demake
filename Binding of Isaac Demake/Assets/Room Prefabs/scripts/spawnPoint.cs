@@ -16,6 +16,7 @@ public class spawnPoint : MonoBehaviour
     private int rand;
     private bool spawns;
 
+
     private float waitTime = 4f;
 
     private void Start()
@@ -23,6 +24,10 @@ public class spawnPoint : MonoBehaviour
         Destroy(gameObject, waitTime);
         rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
         Invoke("Spawn", 1f);
+        if(rooms.rooms.Count >= rooms.room_count /*|| rooms.rooms.Count + >= rooms.room_count*/)
+        {
+            CancelInvoke();
+        }
     }
 
     private void Spawn()
