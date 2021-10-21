@@ -7,37 +7,29 @@ public class EnemySpawner : MonoBehaviour
     [System.Serializable]
     public class Enemies
     {
-        public enum State { PATROLING, ATTACKING, FLEEING };
+        //public enum State { PATROLING, ATTACKING, FLEEING };
         public GameObject prefab;
         public int count;
-        public int spawn_rate;
-        public int max_health;
-        public int speed;
-        public State current_state;
+        //public int spawn_rate;
+        //public int max_health;
+        //public int speed;
+        //public State current_state;
     }
 
     [Header("[ENEMY TYPE]")]
     [SerializeField]
     private Enemies[] enemy = null;
 
-    // refactor this filth
     void Start()
     {
-        if (enemy.Length > 0)
+        for(int i = 0; i < enemy.Length; i++)
         {
-            // Enemy Type 1
-            for (int i = 0; i < enemy[0].count; i++)
+            if(enemy.Length > i)
             {
-                Instantiate(enemy[0].prefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            }
-        }
-
-        if (enemy.Length > 1)
-        {
-            // Enemy Type 2
-            for (int i = 0; i < enemy[1].count; i++)
-            {
-                Instantiate(enemy[1].prefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                for(int j = 0; j < enemy[i].count; j++)
+                {
+                    Instantiate(enemy[i].prefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                }
             }
         }
     }
