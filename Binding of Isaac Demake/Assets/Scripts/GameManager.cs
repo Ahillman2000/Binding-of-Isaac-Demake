@@ -5,13 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameObject player;
-    private PlayerScript playerScript;
+    private PlayerStats playerStats;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<PlayerScript>();
+        playerStats = player.GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
         // Debug code for player stats
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            playerScript.TakeDamage(1);
-            Debug.Log(playerScript.GetCurrentLives());
+            playerStats.TakeDamage(1);
+            Debug.Log(playerStats.GetCurrentLives());
         }
     }
 }

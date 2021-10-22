@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private int maxLives       = 3;
     private int currentLives                    = 0;

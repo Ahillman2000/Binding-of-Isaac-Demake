@@ -11,7 +11,7 @@ public class playerControllerScript : MonoBehaviour
 
     private readonly float deadzoneValue = 0.5f;
 
-    private PlayerScript playerScript;
+    private PlayerStats playerStats;
 
     public enum PlayerDirection {UP, DOWN, LEFT, RIGHT};
     public PlayerDirection playerDirection = PlayerDirection.DOWN;
@@ -32,7 +32,7 @@ public class playerControllerScript : MonoBehaviour
 
     void Start()
     {
-        playerScript = this.GetComponent<PlayerScript>();
+        playerStats = this.GetComponent<PlayerStats>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
@@ -52,23 +52,21 @@ public class playerControllerScript : MonoBehaviour
         if (movementValues.x <= -deadzoneValue)
         {
             playerDirection = PlayerDirection.LEFT;
-            this.transform.position += new Vector3(-1, 0, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
         else if (movementValues.x >= deadzoneValue)
         {
             playerDirection = PlayerDirection.RIGHT;
-            this.transform.position += new Vector3(1, 0, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
         else if (movementValues.y >= deadzoneValue)
         {
             playerDirection = PlayerDirection.UP;
-            this.transform.position += new Vector3(0, 1, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
         else if (movementValues.y <= -deadzoneValue)
         {
             playerDirection = PlayerDirection.DOWN;
-            this.transform.position += new Vector3(0, -1, 0) * playerScript.GetSpeed() * Time.deltaTime;
         }
+
+        this.transform.position += playerStats.GetSpeed() * Time.deltaTime * new Vector3(movementValues.x, movementValues.y, 0).normalized;
     }
 
     private void ChangeSprite()
