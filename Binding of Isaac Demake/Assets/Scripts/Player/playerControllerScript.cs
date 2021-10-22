@@ -52,21 +52,23 @@ public class playerControllerScript : MonoBehaviour
         if (movementValues.x <= -deadzoneValue)
         {
             playerDirection = PlayerDirection.LEFT;
+            this.transform.position += new Vector3(-1, 0, 0) * playerStats.GetSpeed() * Time.deltaTime;
         }
         else if (movementValues.x >= deadzoneValue)
         {
             playerDirection = PlayerDirection.RIGHT;
+            this.transform.position += new Vector3(1, 0, 0) * playerStats.GetSpeed() * Time.deltaTime;
         }
         else if (movementValues.y >= deadzoneValue)
         {
             playerDirection = PlayerDirection.UP;
+            this.transform.position += new Vector3(0, 1, 0) * playerStats.GetSpeed() * Time.deltaTime;
         }
         else if (movementValues.y <= -deadzoneValue)
         {
             playerDirection = PlayerDirection.DOWN;
+            this.transform.position += new Vector3(0, -1, 0) * playerStats.GetSpeed() * Time.deltaTime;
         }
-
-        this.transform.position += playerStats.GetSpeed() * Time.deltaTime * new Vector3(movementValues.x, movementValues.y, 0).normalized;
     }
 
     private void ChangeSprite()

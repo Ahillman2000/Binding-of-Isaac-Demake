@@ -4,36 +4,48 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private int maxLives       = 3;
-    private int currentLives                    = 0;
+    private int currentHealth                    = 0;
 
+    [SerializeField] private int maxHealth= 3;
+
+    [SerializeField] private int playerLives = 0;
+    
     [SerializeField] private float speed        = 3f;
 
-    [SerializeField] private int attackDamage   = 1;
+    [SerializeField] private float attackDamage   = 1.0f;
 
-    [SerializeField] private float shotVelocity = 1.0f;
+    [SerializeField] private float damageMultiplier   = 1.0f;
+
+    [SerializeField] private float shotVelocity = 0.8f;
+
+
+    // COMENT: 
+
+    // Lob in here the count for the coins, keys and bombs
+    // Luck stat can be added to help for the consumable chance of dropping
+    // As well Shot distance [SerializeField] private float shotDistance = ---;
 
     void Start()
     {
-        currentLives = maxLives;
+        currentHealth = maxHealth;
     }
 
-    public void SetMaxLives(int _maxLives)
+    public void SetMaxHealth(int _maxHealth)
     {
-        maxLives = _maxLives;
+        maxHealth = _maxHealth;
     }
-    public int GetMaxLives()
+    public int GetMaxHealth()
     {
-        return maxLives;
+        return maxHealth;
     }
 
-    public void SetCurrentLives(int _currentLives)
+    public void SetCurrentHealth(int _currentHealth)
     {
-        currentLives = _currentLives;
+        currentHealth = _currentHealth;
     }
-    public int GetCurrentLives()
+    public int GetCurrentHealth()
     {
-        return currentLives;
+        return currentHealth;
     }
 
     public void SetSpeed(float _speed)
@@ -45,15 +57,38 @@ public class PlayerStats : MonoBehaviour
         return speed;
     }
 
-    public void SetAttackDamage(int _attackDamage)
+    public void SetAttackDamage(float _attackDamage)
     {
-        attackDamage = _attackDamage;
+        attackDamage = _attackDamage * damageMultiplier;
     }
-    public int GetAttackDamage()
+    public float GetAttackDamage()
     {
         return attackDamage;
     }
 
+    // Eddit Added by Vlad, fix later down the line
+    /// <summary>
+    public void SetDamageMultiplier(float _damageMultiplier)
+    {
+        damageMultiplier = _damageMultiplier;
+    }
+    public float GetDamageMultiplier()
+    {
+        return damageMultiplier;
+    }
+    /// </summary>
+    /// <param name="_damageMultiplier"></param>
+
+    
+    public void SetPlayerLives(int _playerLives)
+    {
+        playerLives = _playerLives;
+    }
+    public int GetPlayerLives()
+    {
+        return playerLives;
+    }
+   
     public void SetShotVelocity(float _shotVelocity)
     {
         shotVelocity = _shotVelocity;
@@ -65,9 +100,9 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int _damage)
     {
-        currentLives -= _damage;
+        currentHealth -= _damage;
 
-        if(currentLives <= 0)
+        if(currentHealth <= 0)
         {
             Die();
         }

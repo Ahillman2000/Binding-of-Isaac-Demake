@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             playerStats.TakeDamage(1);
-            Debug.Log(playerStats.GetCurrentLives());
+            Debug.Log(playerStats.GetCurrentHealth());
         }
     }
 }

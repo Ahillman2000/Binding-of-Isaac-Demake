@@ -9,6 +9,15 @@ TagManager:
   - SpawnPoint
   - Rooms
   - RoomManager
+  - MM
+  - Halo
+  - GM
+  - RR
+  - Virus
+  - PH
+  - 1UP
+  - MEP
+  - PT
   layers:
   - Default
   - TransparentFX
