@@ -9,7 +9,15 @@ public class EnemyDamage : MonoBehaviour
         if (collision.tag == "Projectile")
         {
             Destroy(collision.gameObject); // destroy projectile
-            Destroy(transform.parent.gameObject); // destroy enemy
+
+            if(transform.parent.parent != null)
+            {
+                Destroy(transform.parent.parent.gameObject); // destroy enemy container
+            }
+            else
+            {
+                Destroy(transform.parent.gameObject); 
+            }
         }
     }
 }
