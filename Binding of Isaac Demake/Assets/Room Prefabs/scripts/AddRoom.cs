@@ -8,11 +8,8 @@ public class AddRoom : MonoBehaviour
 
     private void Start()
     {
+
         rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
-        if(rooms.rooms.Count < rooms.room_count)
-        {
-            rooms.rooms.Add(this.gameObject);
-        }
-        
+        rooms.rooms.Add(this.gameObject);       
     }
 }

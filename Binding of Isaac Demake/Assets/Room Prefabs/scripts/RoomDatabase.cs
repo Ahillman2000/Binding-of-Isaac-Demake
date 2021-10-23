@@ -12,6 +12,8 @@ public class RoomDatabase : MonoBehaviour
     public GameObject[] entry_room;
     public GameObject closed_room;
 
+    public GameObject door;
+
     public int room_count;
 
     public List<GameObject> rooms;
