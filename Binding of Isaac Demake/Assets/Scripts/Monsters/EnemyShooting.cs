@@ -21,10 +21,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
-        if (inPatrolArea)
-        {
-            FireProjectile();
-        }
+        FireProjectile();
     }
 
     void FireProjectile()
@@ -33,22 +30,6 @@ public class EnemyShooting : MonoBehaviour
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             nextFire = Time.time + fireRate;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.Equals(player))
-        {
-            inPatrolArea = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.Equals(player))
-        {
-            inPatrolArea = false;
         }
     }
 }
