@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
             playerItems.SetBombs(playerItems.GetBombs() - 1);
         }
 
-        Debug.Log(intScore);
+        //Debug.Log(intScore);
     }
 
     void Update()
