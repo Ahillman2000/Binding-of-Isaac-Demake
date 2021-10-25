@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 3912378507575375064, guid: 487f7c21e69f5514bbca3f47c9e66051, type: 3}
+  fireRate: 1.5
 --- !u!1 &5660636783593482625
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 25
+  speed: 2
   nextWaypointDistance: 0.5
 --- !u!114 &5660636783593482624
 MonoBehaviour:
