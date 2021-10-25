@@ -94,6 +94,6 @@ public class UIManager : MonoBehaviour
             keyText.text = "x" + playerItems.GetKeys().ToString();
         }
 
-        score.text = gameManager.GetScore().ToString();
+       // score.text = gameManager.GetScore().ToString();
     }
 }
