@@ -94,6 +94,34 @@ public class UIManager : MonoBehaviour
             keyText.text = "x" + playerItems.GetKeys().ToString();
         }
 
-       // score.text = gameManager.GetScore().ToString();
+       score.text = "SCORE: " + gameManager.GetScore().ToString();
+
+        // 000000
+        if(gameManager.GetScore() < 10)
+        {
+            score.text = "SCORE: 00000" + gameManager.GetScore().ToString();
+        }
+        else if (gameManager.GetScore() >= 10 && gameManager.GetScore() < 100)
+        {
+            score.text = "SCORE: 0000" + gameManager.GetScore().ToString();
+        }
+        else if (gameManager.GetScore() >= 100 && gameManager.GetScore() < 1000)
+        {
+            score.text = "SCORE: 000" + gameManager.GetScore().ToString();
+        }
+        else if (gameManager.GetScore() >= 1000 && gameManager.GetScore() < 10000)
+        {
+            score.text = "SCORE: 00" + gameManager.GetScore().ToString();
+        }
+        else if (gameManager.GetScore() >= 10000 && gameManager.GetScore() < 10000)
+        {
+            score.text = "SCORE: 0" + gameManager.GetScore().ToString();
+        }
+        else
+        {
+            score.text = "SCORE: " + gameManager.GetScore().ToString();
+        }
+
+
     }
 }

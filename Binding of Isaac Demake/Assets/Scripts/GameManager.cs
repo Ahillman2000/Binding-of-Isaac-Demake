@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour
         playerItems = player.GetComponent<PlayerItems>();
     }
 
+    private void Score()
+    {
+        floatScore += Time.deltaTime;
+        intScore = (int)floatScore;
+    }
+
     public int GetScore()
     {
         return intScore;
@@ -27,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void SetScore(int _score)
     {
-        intScore = _score;
+        floatScore = (float)_score;
     }
 
     void Debugger()
@@ -58,12 +64,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(debug)
+        if (debug)
         {
             Debugger();
         }
-
-        floatScore += Time.deltaTime;
-        intScore = (int)floatScore;
+        Score();
     }
 }
