@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     void Debugger()
     {
         // Debug code for player stats
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             playerStats.TakeDamage(1);
             Debug.Log(playerStats.GetCurrentHealth());
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             playerItems.SetCoins(playerItems.GetCoins() - 1);
             playerItems.SetKeys(playerItems.GetKeys() - 1);
             playerItems.SetBombs(playerItems.GetBombs() - 1);
-        }
+        }*/
 
         //Debug.Log(intScore);
     }

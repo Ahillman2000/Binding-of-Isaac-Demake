@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -17,9 +18,6 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float damageMultiplier = 1.0f;
 
     [SerializeField] private float shotVelocity     = 0.8f;
-
-
-    // COMENT: 
 
     // Lob in here the count for the coins, keys and bombs
     // Luck stat can be added to help for the consumable chance of dropping
@@ -111,5 +109,6 @@ public class PlayerStats : MonoBehaviour
     private void Die()
     {
         Debug.Log("GAME OVER");
+        SceneManager.LoadScene("Lose");
     }
 }
