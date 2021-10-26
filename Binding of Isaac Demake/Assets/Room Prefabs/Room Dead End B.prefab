@@ -1849,9 +1849,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7100123974770436552}
-  - component: {fileID: 7945317893832669909}
   - component: {fileID: 7383086943114803226}
   - component: {fileID: 7718101105558904436}
+  - component: {fileID: 3312023666358443619}
   m_Layer: 0
   m_Name: DoorSpawner
   m_TagString: doorSpawner
@@ -1873,19 +1873,6 @@ Transform:
   m_Father: {fileID: 1525428197154345005}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &7945317893832669909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5298145110895040530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd265c90b5218c409c25877d80afd0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setDirection: 0
 --- !u!61 &7383086943114803226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1933,3 +1920,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3312023666358443619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5298145110895040530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599cf9295af7f6e41beee00d26aa963c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

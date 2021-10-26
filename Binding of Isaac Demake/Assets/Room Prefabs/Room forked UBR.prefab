@@ -101,9 +101,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4375916427744594283}
-  - component: {fileID: 2804946176879139343}
   - component: {fileID: 2966515420465193553}
   - component: {fileID: 1041485573990040255}
+  - component: {fileID: 2112012069661227092}
   m_Layer: 0
   m_Name: DoorSpawner
   m_TagString: doorSpawner
@@ -125,19 +125,6 @@ Transform:
   m_Father: {fileID: 8792089064283411280}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2804946176879139343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3894565577975703613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd265c90b5218c409c25877d80afd0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setDirection: 0
 --- !u!61 &2966515420465193553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,6 +172,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2112012069661227092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894565577975703613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599cf9295af7f6e41beee00d26aa963c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6105806137487249828
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,9 +193,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7780760781873987229}
-  - component: {fileID: 4654726344639041460}
   - component: {fileID: 7430617415351899651}
   - component: {fileID: 628569310752993209}
+  - component: {fileID: 1507763432444657675}
   m_Layer: 0
   m_Name: DoorSpawner (2)
   m_TagString: doorSpawner
@@ -218,19 +217,6 @@ Transform:
   m_Father: {fileID: 8792089064283411280}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &4654726344639041460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6105806137487249828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd265c90b5218c409c25877d80afd0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setDirection: 0
 --- !u!61 &7430617415351899651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -278,6 +264,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1507763432444657675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105806137487249828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599cf9295af7f6e41beee00d26aa963c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8665634452670036611
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,9 +285,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7840461346102746673}
-  - component: {fileID: 3254023242972211042}
   - component: {fileID: 4304385622111059386}
   - component: {fileID: 548316791243744913}
+  - component: {fileID: 449681194489618035}
   m_Layer: 0
   m_Name: DoorSpawner (1)
   m_TagString: doorSpawner
@@ -311,19 +309,6 @@ Transform:
   m_Father: {fileID: 8792089064283411280}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!114 &3254023242972211042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8665634452670036611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd265c90b5218c409c25877d80afd0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setDirection: 0
 --- !u!61 &4304385622111059386
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -371,6 +356,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &449681194489618035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665634452670036611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599cf9295af7f6e41beee00d26aa963c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8792089062615771581
 GameObject:
   m_ObjectHideFlags: 0

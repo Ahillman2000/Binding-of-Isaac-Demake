@@ -1678,9 +1678,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6855400350957742853}
-  - component: {fileID: 2718465670626937905}
   - component: {fileID: 1298199569051554919}
   - component: {fileID: 3044929719581012879}
+  - component: {fileID: 4318485041709286406}
   m_Layer: 0
   m_Name: DoorSpawner (1)
   m_TagString: doorSpawner
@@ -1702,19 +1702,6 @@ Transform:
   m_Father: {fileID: 1997580574394506839}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &2718465670626937905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3901415130259279220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd265c90b5218c409c25877d80afd0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setDirection: 0
 --- !u!61 &1298199569051554919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1762,6 +1749,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4318485041709286406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901415130259279220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599cf9295af7f6e41beee00d26aa963c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4630562070240118900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,9 +2019,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7043102291677455327}
-  - component: {fileID: 7652611464405590024}
   - component: {fileID: 8310579303836707894}
   - component: {fileID: 355560994516741666}
+  - component: {fileID: 7618584306319158124}
   m_Layer: 0
   m_Name: DoorSpawner
   m_TagString: doorSpawner
@@ -2044,19 +2043,6 @@ Transform:
   m_Father: {fileID: 1997580574394506839}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!114 &7652611464405590024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9038284549265884334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd265c90b5218c409c25877d80afd0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setDirection: 0
 --- !u!61 &8310579303836707894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2104,3 +2090,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7618584306319158124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9038284549265884334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599cf9295af7f6e41beee00d26aa963c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

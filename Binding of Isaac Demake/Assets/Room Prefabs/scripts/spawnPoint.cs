@@ -31,39 +31,34 @@ public class spawnPoint : MonoBehaviour
     {
         if (spawns == false)
         {
-            if (this.tag == "SpawnPoint")
+
+
+            if (setDirection == opening_direction.Top)
+            {
+                rand = Random.Range(0, rooms.bottom_facing.Length);
+                Instantiate(rooms.bottom_facing[rand], transform.position, rooms.bottom_facing[rand].transform.rotation);
+
+            }
+            else if (setDirection == opening_direction.Bottom)
             {
 
-                if (setDirection == opening_direction.Top)
-                {
-                    rand = Random.Range(0, rooms.bottom_facing.Length);
-                    Instantiate(rooms.bottom_facing[rand], transform.position, rooms.bottom_facing[rand].transform.rotation);
+                rand = Random.Range(0, rooms.top_facing.Length);
+                Instantiate(rooms.top_facing[rand], transform.position, rooms.top_facing[rand].transform.rotation);
 
-                }
-                else if (setDirection == opening_direction.Bottom)
-                {
-
-                    rand = Random.Range(0, rooms.top_facing.Length);
-                    Instantiate(rooms.top_facing[rand], transform.position, rooms.top_facing[rand].transform.rotation);
-
-                }
-                else if (setDirection == opening_direction.Right)
-                {
-                    rand = Random.Range(0, rooms.left_facing.Length);
-                    Instantiate(rooms.left_facing[rand], transform.position, rooms.left_facing[rand].transform.rotation);
-
-                }
-                else if (setDirection == opening_direction.Left)
-                {
-                    rand = Random.Range(0, rooms.right_facing.Length);
-                    Instantiate(rooms.right_facing[rand], transform.position, rooms.right_facing[rand].transform.rotation);
-
-                }
             }
-            else if(this.tag == "doorSpawner")
+            else if (setDirection == opening_direction.Right)
             {
-                Instantiate(rooms.door, transform.position, transform.rotation);
+                rand = Random.Range(0, rooms.left_facing.Length);
+                Instantiate(rooms.left_facing[rand], transform.position, rooms.left_facing[rand].transform.rotation);
+
             }
+            else if (setDirection == opening_direction.Left)
+            {
+                rand = Random.Range(0, rooms.right_facing.Length);
+                Instantiate(rooms.right_facing[rand], transform.position, rooms.right_facing[rand].transform.rotation);
+
+            }
+
             spawns = true;
         }
 
