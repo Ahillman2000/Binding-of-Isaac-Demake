@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class spawnPoint : MonoBehaviour
 {
-    public enum opening_direction { Top = 0, Bottom = 1, Left = 2, Right = 3};
+    enum opening_direction { Top = 0, Bottom = 1, Left = 2, Right = 3};
     [SerializeField]
     private opening_direction setDirection;
 
