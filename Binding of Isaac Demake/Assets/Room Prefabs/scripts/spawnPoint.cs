@@ -11,7 +11,6 @@ public class spawnPoint : MonoBehaviour
     //2 = top door
     //3 = right door
     //4 = left door
-    public static bool levelGenerated = false;
 
     private RoomDatabase rooms;
     private int rand;
@@ -27,7 +26,6 @@ public class spawnPoint : MonoBehaviour
         if(rooms.rooms.Count >= rooms.room_count /*|| rooms.rooms.Count + >= rooms.room_count*/)
         {
             CancelInvoke();
-            levelGenerated = true;
         }
     }
 
