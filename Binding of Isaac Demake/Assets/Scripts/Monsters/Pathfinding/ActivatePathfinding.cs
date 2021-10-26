@@ -15,10 +15,16 @@ public class ActivatePathfinding : MonoBehaviour
 
     void Update()
     {
-        if(spawnPoint.levelGenerated && worldIsNotGenerated)
+        if (worldIsNotGenerated)
         {
-            path.Scan(); /// Scans the level to generate the pathfinding navigation grid
+            StartCoroutine(Timer());
             worldIsNotGenerated = false;
         }
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(5F);
+        path.Scan(); /// Scans the level to generate the pathfinding navigation grid
     }
 }

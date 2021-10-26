@@ -9,7 +9,7 @@ public class EnemyShooting : MonoBehaviour
     private GameObject player;
     private float fireRate;
     private float nextFire;
-    private bool inPatrolArea = false;
+    //private bool inPatrolArea = false;
 
     void Start()
     {
