@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     //UI gameObjects
-    [SerializeField] private Image[] hearts; //health, preset to 5 now, can add more
+    [SerializeField] private Image[] hearts; //health, preset to 6 now, can add more
+    [SerializeField] private Image[] soulhearts;
     [SerializeField] private Sprite[] heartSprite; //full, half, empty, soul full, soul half
     [SerializeField] private Text scoreText, coinText, bombText, keyText, pickupText;
 
@@ -14,6 +15,8 @@ public class UIManager : MonoBehaviour
     private GameObject player;
     private PlayerStats playerStats;
     private PlayerItems playerItems;
+    private GameObject gameManagerobj;
+    private GameManager gameManager;
     [SerializeField] private int playerHealth, fullHealth, score, coins, bombs, keys;
     [SerializeField] private string powerupInUse;
     private bool pickedUped = false; //check if need to display pickup text
@@ -24,6 +27,8 @@ public class UIManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
         playerItems = player.GetComponent<PlayerItems>();
+        gameManagerobj = GameObject.Find("GameManager");
+        gameManager = gameManagerobj.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -31,9 +36,8 @@ public class UIManager : MonoBehaviour
     {
         UpdateHealth();
         UpdateCollectables();
-        ShowPickupText();
-        //update score, add score cal some point later
-        scoreText.text = "SCORE: " + score.ToString();
+        //ShowPickupText();
+        UpdateScore();
     }
 
     private void UpdateHealth()
@@ -148,11 +152,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void ShowPickupText()
+    public void ShowPickupText(string item)
     {
-        // add ways to put name & description to powerupInUse later
+        pickedUped = true;
         if (pickedUped)
         {
+            powerupInUse = item;
             StartCoroutine(Show());
         }
     }
@@ -161,7 +166,37 @@ public class UIManager : MonoBehaviour
     {
         pickedUped = false;
         pickupText.text = powerupInUse;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         pickupText.text = "";
+    }
+
+    private void UpdateScore()
+    {
+        score = gameManager.GetScore();
+        if (score > 99999)
+        {
+            scoreText.text = "SCORE: " + score.ToString();
+        }
+        else if (score > 9999)
+        {
+            scoreText.text = "SCORE: 0" + score.ToString();
+        }
+        else if (score > 999)
+        {
+            scoreText.text = "SCORE: 00" + score.ToString();
+        }
+        else if (score > 99)
+        {
+            scoreText.text = "SCORE: 000" + score.ToString();
+        }
+        else if (score > 9)
+        {
+            scoreText.text = "SCORE: 0000" + score.ToString();
+        }
+        else
+        {
+            scoreText.text = "SCORE: 00000" + score.ToString();
+        }
+
     }
 }

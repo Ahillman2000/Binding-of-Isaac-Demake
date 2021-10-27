@@ -9,8 +9,9 @@ public class PlayerManager : MonoBehaviour
 
     PlayerItems playerItems;
 
-    GameObject gameManagerobj;
+    GameObject gameManagerobj, uIobj;
     GameManager gameManager;
+    UIManager uIManager;
 
     private void Start()
     {
@@ -20,6 +21,9 @@ public class PlayerManager : MonoBehaviour
 
         gameManagerobj = GameObject.Find("GameManager");
         gameManager = gameManagerobj.GetComponent<GameManager>();
+
+        uIobj = GameObject.Find("UI");
+        uIManager = uIobj.GetComponent<UIManager>();
     }
 
     private int GenerateRandomNumber()
@@ -41,6 +45,7 @@ public class PlayerManager : MonoBehaviour
                 playerStats.SetMaxHealth(playerStats.GetMaxHealth() + 1);
                 playerStats.SetDamageMultiplier(playerStats.GetDamageMultiplier() + 1.5f);
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("Magic Mush- ALL STATS UP");
                 return true;
             case Constants.TAG_HALO:
                 playerStats.SetSpeed(playerStats.GetSpeed() + 0.3f);
@@ -48,12 +53,14 @@ public class PlayerManager : MonoBehaviour
                 playerStats.SetShotVelocity(playerStats.GetShotVelocity() + 0.2f);
                 playerStats.SetMaxHealth(playerStats.GetMaxHealth() + 1);
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("The Halo - ALL STATS UP");
                 return true;
             case
                 Constants.TAG_GM:
                 playerStats.SetSpeed(playerStats.GetSpeed() + 0.4f);
                 playerStats.SetAttackDamage(playerStats.GetAttackDamage() + 1.0f);
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("Growth Hormone - Health + DMG UP");
                 return true;
             case
                 Constants.TAG_RR:
@@ -61,6 +68,7 @@ public class PlayerManager : MonoBehaviour
                 playerStats.SetShotVelocity(playerStats.GetShotVelocity() + 0.2f);
                 playerStats.SetAttackDamage(playerStats.GetAttackDamage() + 0.1f);
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("Roid Rage - Shot speed + range up");
                 return true;
             case
                 Constants.TAG_VIRUS:
@@ -68,29 +76,34 @@ public class PlayerManager : MonoBehaviour
                 playerStats.SetAttackDamage(playerStats.GetAttackDamage() + 0.5f);
                 playerStats.SetShotVelocity(playerStats.GetShotVelocity() - 0.3f);
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("Speed Ball - Move speed + shot speed up");
                 return true;
             case
                 Constants.TAG_PH:
                 playerStats.SetDamageMultiplier(playerStats.GetDamageMultiplier() + 2f);
                 playerStats.SetAttackDamage((playerStats.GetAttackDamage() + 4.0f) * playerStats.GetDamageMultiplier());
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("Polyphemus - DMG UP");
                 return true;
 
             case
                 Constants.TAG_1UP:
                 playerStats.SetPlayerLives(playerStats.GetPlayerLives() + 1);
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("1up - extra life");
                 return true;
 
             case
                 Constants.TAG_MEP:
                 playerStats.SetAttackDamage(playerStats.GetAttackDamage() + playerItems.GetCoinDamageAC());
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("MONEY = POWER");
                 return true;
             case
                 Constants.TAG_PT:
                 playerStats.SetAttackDamage(playerStats.GetAttackDamage() + 3.5f);
                 FindObjectOfType<AudioManager>().Play("PowerUp");
+                uIManager.ShowPickupText("PROPTOSIS - DMG UP");
                 return true;
 
             //Consumables
