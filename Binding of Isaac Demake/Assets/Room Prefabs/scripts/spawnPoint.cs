@@ -4,61 +4,62 @@ using UnityEngine;
 
 public class spawnPoint : MonoBehaviour
 {
-    public enum opening_direction { Top = 0, Bottom = 1, Left = 2, Right = 3};
+    enum opening_direction { Top = 0, Bottom = 1, Left = 2, Right = 3};
     [SerializeField]
     private opening_direction setDirection;
-    //1 = bottom door
-    //2 = top door
-    //3 = right door
-    //4 = left door
 
     private RoomDatabase rooms;
     private int rand;
     private bool spawns;
 
-    private float waitTime = 4f;
+    private float generationTime = 0;
+    private float spawnTime = 1;
+
 
     private void Start()
     {
-        Destroy(gameObject, waitTime);
+        
         rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
-        Invoke("Spawn", 1f);
-        if(rooms.rooms.Count >= rooms.room_count /*|| rooms.rooms.Count + >= rooms.room_count*/)
+        generationTime = rooms.room_count * spawnTime;
+        Invoke("Spawn", spawnTime);
+        if(rooms.rooms.Count >= rooms.room_count)
         {
             CancelInvoke();
         }
+        Destroy(gameObject, generationTime);
     }
-
     private void Spawn()
     {
         if (spawns == false)
         {
-            //resposition room prefabs to be on the .0 line
+
 
             if (setDirection == opening_direction.Top)
             {
                 rand = Random.Range(0, rooms.bottom_facing.Length);
                 Instantiate(rooms.bottom_facing[rand], transform.position, rooms.bottom_facing[rand].transform.rotation);
-                //need to spawn a room with a bottom door
+
             }
             else if (setDirection == opening_direction.Bottom)
             {
+
                 rand = Random.Range(0, rooms.top_facing.Length);
                 Instantiate(rooms.top_facing[rand], transform.position, rooms.top_facing[rand].transform.rotation);
-                //need to spawn a room with a top door
+
             }
             else if (setDirection == opening_direction.Right)
             {
                 rand = Random.Range(0, rooms.left_facing.Length);
                 Instantiate(rooms.left_facing[rand], transform.position, rooms.left_facing[rand].transform.rotation);
-                //need to spawn a room with a right door
+
             }
             else if (setDirection == opening_direction.Left)
             {
                 rand = Random.Range(0, rooms.right_facing.Length);
                 Instantiate(rooms.right_facing[rand], transform.position, rooms.right_facing[rand].transform.rotation);
-                //need to spawn a room with a left door
+
             }
+
             spawns = true;
         }
 

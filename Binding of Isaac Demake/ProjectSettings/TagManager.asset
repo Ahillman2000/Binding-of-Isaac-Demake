@@ -18,7 +18,7 @@ TagManager:
   - 1UP
   - MEP
   - PT
-  - Enemy
+  - doorSpawner
   layers:
   - Default
   - TransparentFX
