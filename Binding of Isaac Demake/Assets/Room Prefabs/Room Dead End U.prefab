@@ -1350,6 +1350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3034635915275048122}
   - component: {fileID: -5306235317138571572}
+  - component: {fileID: 3553820028260943199}
   m_Layer: 0
   m_Name: Room Dead End U
   m_TagString: Rooms

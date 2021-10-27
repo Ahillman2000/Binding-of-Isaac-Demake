@@ -1700,6 +1700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7213078120077976335}
   - component: {fileID: -4069845623707705599}
+  - component: {fileID: -9020694945782655401}
   m_Layer: 0
   m_Name: Room Corner BL
   m_TagString: Rooms

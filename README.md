@@ -17,4 +17,4 @@ player movement:
 
 attack / use:
 
- Spacebar / gamepad button West
+ Spacebar / gamepad button South

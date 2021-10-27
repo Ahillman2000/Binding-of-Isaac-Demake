@@ -5,20 +5,33 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    GameObject gameManagerobj;
+    GameManager gameManager;
+
+    GameObject player;
+    PlayerStats playerStats;
+    PlayerItems playerItems;
+
     //UI gameObjects
     public Image[] hearts; //health
     public Sprite[] heartSprite;
     public Image powerupIcon;
     public Text coinText, bombText, keyText;
+    public Text score;
 
     //vars to be replace
-    public int playerHealth, fullHealth, coins, bombs, keys;
+    public int playerHealth, fullHealth;
     public string powerupInUsed;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManagerobj = GameObject.Find("GameManager");
+        gameManager = gameManagerobj.GetComponent<GameManager>();
 
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerStats = player.GetComponent<PlayerStats>();
+        playerItems = player.GetComponent<PlayerItems>();
     }
 
     // Update is called once per frame
@@ -56,30 +69,59 @@ public class UIManager : MonoBehaviour
         }
 
         //collectable texts
-        if (coins < 10)
+        if (playerItems.GetCoins() < 10)
         {
-            coinText.text = "x0" + coins.ToString();
+            coinText.text = "x0" + playerItems.GetCoins().ToString();
         }
         else
         {
-            coinText.text = "x" + coins.ToString();
+            coinText.text = "x" + playerItems.GetCoins().ToString();
         }
-        if (bombs < 10)
+        if (playerItems.GetBombs() < 10)
         {
-            bombText.text = "x0" + bombs.ToString();
+            bombText.text = "x0" + playerItems.GetBombs().ToString();
         }
         else
         {
-            bombText.text = "x" + bombs.ToString();
+            bombText.text = "x" + playerItems.GetBombs().ToString();
         }
-        if (keys < 10)
+        if (playerItems.GetKeys() < 10)
         {
-            keyText.text = "x0" + keys.ToString();
+            keyText.text = "x0" + playerItems.GetKeys().ToString();
         }
         else
         {
-            keyText.text = "x" + keys.ToString();
+            keyText.text = "x" + playerItems.GetKeys().ToString();
         }
-        
+
+       score.text = "SCORE: " + gameManager.GetScore().ToString();
+
+        // 000000
+        if(gameManager.GetScore() < 10)
+        {
+            score.text = "SCORE: 00000" + gameManager.GetScore().ToString();
+        }
+        else if (gameManager.GetScore() >= 10 && gameManager.GetScore() < 100)
+        {
+            score.text = "SCORE: 0000" + gameManager.GetScore().ToString();
+        }
+        else if (gameManager.GetScore() >= 100 && gameManager.GetScore() < 1000)
+        {
+            score.text = "SCORE: 000" + gameManager.GetScore().ToString();
+        }
+        else if (gameManager.GetScore() >= 1000 && gameManager.GetScore() < 10000)
+        {
+            score.text = "SCORE: 00" + gameManager.GetScore().ToString();
+        }
+        else if (gameManager.GetScore() >= 10000 && gameManager.GetScore() < 10000)
+        {
+            score.text = "SCORE: 0" + gameManager.GetScore().ToString();
+        }
+        else
+        {
+            score.text = "SCORE: " + gameManager.GetScore().ToString();
+        }
+
+
     }
 }

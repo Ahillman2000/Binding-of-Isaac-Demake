@@ -513,6 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4578688863088630652}
   - component: {fileID: -1209555514342075146}
+  - component: {fileID: 433307522118615669}
   m_Layer: 0
   m_Name: Room forked UBL
   m_TagString: Rooms

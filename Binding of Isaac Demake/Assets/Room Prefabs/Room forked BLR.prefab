@@ -1314,6 +1314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4442657706212158553}
   - component: {fileID: 8552310275774427173}
+  - component: {fileID: -7808079646441942809}
   m_Layer: 0
   m_Name: Room forked BLR
   m_TagString: Rooms
