@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae71b261ca6907046b9be2d0d0e132a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootDrop: {fileID: 4765184872052540795, guid: 5811f3de94fb3b94586a2bf2498f295f, type: 3}
 --- !u!1 &5576290374752104177
 GameObject:
   m_ObjectHideFlags: 0

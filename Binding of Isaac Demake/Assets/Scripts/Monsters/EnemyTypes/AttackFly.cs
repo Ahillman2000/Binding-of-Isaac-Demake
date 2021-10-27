@@ -10,9 +10,11 @@ public class AttackFly : Enemy
 
     private Color RED = new Color(0.78F, 0, 0, 0.8F);
 
+    public GameObject lootDrop;
+
     protected override void Start()
     {
-        base.Start();
+        //base.Start();
         health_ = 100;
         damage_ = 25;
 
@@ -23,7 +25,7 @@ public class AttackFly : Enemy
 
     protected override void Update()
     {
-        base.Update();
+        //base.Update();
         Movement();
         Attack();
 
@@ -39,6 +41,10 @@ public class AttackFly : Enemy
 
     protected override void Die() 
     {
+        if (Random.value > 0.7)
+        {
+            Instantiate(lootDrop, transform.position, Quaternion.identity);
+        }   //50% = 0.5, 80% = 0.2, 30% = 0.7
         Destroy(gameObject);
     }
 

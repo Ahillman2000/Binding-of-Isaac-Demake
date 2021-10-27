@@ -9,11 +9,19 @@ public class PlayerShooting : MonoBehaviour
     private PlayerInputActions playerInputActions;
 
     public GameObject tearsPrefab;
-    public Transform firePoint; 
+    public Transform firePoint;
+
+    private GameObject player;
+    private PlayerStats playerStats;
+
+    private float nextFire = 0f;
 
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerStats = player.GetComponent<PlayerStats>();
     }
 
     private void OnEnable()
@@ -25,8 +33,18 @@ public class PlayerShooting : MonoBehaviour
     private void DoAction(InputAction.CallbackContext obj)
     {
         //Debug.Log("Action Done");
-
-        FireTear();
+        if (playerStats.GetFireRate() == 0)
+        {
+            FireTear();
+        }
+        else
+        {
+            if (Time.time > nextFire)
+            {
+                nextFire = Time.time + playerStats.GetFireRate();
+                FireTear();
+            }
+        }
     }
 
     private void FireTear()

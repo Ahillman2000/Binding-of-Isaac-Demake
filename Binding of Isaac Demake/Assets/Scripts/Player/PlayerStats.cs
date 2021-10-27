@@ -19,6 +19,8 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private float shotVelocity     = 0.8f;
 
+    [SerializeField] private float fireRate         = 0.25f;
+
     // Lob in here the count for the coins, keys and bombs
     // Luck stat can be added to help for the consumable chance of dropping
     // As well Shot distance [SerializeField] private float shotDistance = ---;
@@ -94,6 +96,15 @@ public class PlayerStats : MonoBehaviour
     public float GetShotVelocity()
     {
         return shotVelocity;
+    }
+
+    public void SetFireRate(float _FireRate)
+    {
+        fireRate = _FireRate;
+    }
+    public float GetFireRate()
+    {
+        return fireRate;
     }
 
     public void TakeDamage(int _damage)
