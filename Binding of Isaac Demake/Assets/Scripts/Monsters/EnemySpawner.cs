@@ -4,36 +4,43 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    //private spawnPoint spawnPoint;
-    private GameObject player;
-
     [System.Serializable]
     public class Enemies
     {
-        //public enum State { PATROLING, ATTACKING, FLEEING };
         public GameObject prefab;
         public int count;
-        //public int spawn_rate;
-        //public int max_health;
-        //public int speed;
-        //public State current_state;
     }
 
-    [Header("[ENEMY TYPE]")]
+    [Header("[Custom Initialisation]")]
     [SerializeField]
     private Enemies[] enemy = null;
-    // Enemy[] enemy 
 
-    /// If one spawner per room then this could be used to get enemy room count
+    [Header("[Random Initialisation]")]
+    [SerializeField]
+    private GameObject[] random_enemy = null;
+
+    // Enemy[] enemy 
+    private GameObject player;
     private List<GameObject> enemy_container = new List<GameObject>();
+
+    private int room_capacity = 3;
 
     void Awake()
     {
         player = GameObject.FindWithTag("Player");
-
         Vector2 spawner_pos = transform.position;
-        //Vector2 spawner_size = GetComponent<BoxCollider2D>().size;
 
+        /// If player is within spawn room then spawn no enemies (dumb fix)
+        if (player.transform.position == this.transform.position)
+        {
+            room_capacity = 0;
+        } 
+        else 
+        { 
+            room_capacity = Random.Range(0, 4); 
+        }
+
+        /// Custom Enemy Instantiation
         for (int i = 0; i < enemy.Length; i++)
         {
             if (enemy.Length > i)
@@ -42,8 +49,8 @@ public class EnemySpawner : MonoBehaviour
                 {
                     /// Generate random position
                     Vector2 random_pos;
-                    random_pos.x = Random.Range(spawner_pos.x - /*spawner_size.x /*/ 2, spawner_pos.x + /*spawner_size.x /*/ 2);
-                    random_pos.y = Random.Range(spawner_pos.y - /*spawner_size.y /*/ 2, spawner_pos.y + /*spawner_size.y /*/ 2);
+                    random_pos.x = Random.Range(spawner_pos.x - 2, spawner_pos.x + 2);
+                    random_pos.y = Random.Range(spawner_pos.y - 2, spawner_pos.y + 2);
 
                     /// Instantiate enemy and to container list
                     GameObject enemy_inst = Instantiate(enemy[i].prefab, new Vector2(random_pos.x, random_pos.y), Quaternion.identity);
@@ -52,6 +59,31 @@ public class EnemySpawner : MonoBehaviour
                     enemy_container.Add(enemy_inst);
                 }
             }
+        }
+
+        /// Random Enemy Instantiation 
+        if (random_enemy.Length > 0 && room_capacity > 0)
+        {
+            for (int i = 0; i < room_capacity; i++)
+            {
+                /// Generate random position
+                Vector2 random_pos;
+                random_pos.x = Random.Range(spawner_pos.x - 2, spawner_pos.x + 2);
+                random_pos.y = Random.Range(spawner_pos.y - 2, spawner_pos.y + 2);
+
+                /// Generate random enemy type
+                int random_index = Random.Range(0, random_enemy.Length);
+
+                /// Instantiate enemy and to container list
+                GameObject enemy_inst = Instantiate(random_enemy[random_index], new Vector2(random_pos.x, random_pos.y), Quaternion.identity);
+                enemy_inst.transform.parent = transform;
+
+                if (enemy_inst.GetComponent<EnemyAi>() != null)
+                {
+                    enemy_inst.GetComponent<EnemyAi>().target = player.transform;
+                }
+                enemy_container.Add(enemy_inst);
+            } 
         }
     }
 }

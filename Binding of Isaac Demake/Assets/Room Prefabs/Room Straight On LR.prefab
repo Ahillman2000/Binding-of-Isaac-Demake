@@ -1088,9 +1088,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a891451077148b34baaed699794ff7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-  - prefab: {fileID: 1164194341115341714, guid: c9f989e57a0a44e43bd3c62149f4be0c, type: 3}
-    count: 1
+  enemy: []
+  random_enemy:
+  - {fileID: 6975984791201948564, guid: a6920367a7182a9419f2d302dddbcd41, type: 3}
+  - {fileID: 1164194341115341714, guid: c9f989e57a0a44e43bd3c62149f4be0c, type: 3}
+  - {fileID: 5660636783593482625, guid: 07856c339d37171439eb5a4363db1ddb, type: 3}
 --- !u!1 &1997580574415410755
 GameObject:
   m_ObjectHideFlags: 0
