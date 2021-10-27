@@ -55,7 +55,7 @@ public class AttackFly : Enemy
             if(playerStats.GetCurrentHealth() > 0)
             {
                 playerStats.TakeDamage(1); // handle in player script?
-                uIManager.playerHealth -= 1; // handle in UI script?
+                //uIManager.playerHealth -= 1; // handle in UI script?
 
                 //player.GetComponent<Rigidbody2D>().velocity *= -1;
 

@@ -5,30 +5,22 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    GameObject gameManagerobj;
-    GameManager gameManager;
-
-    GameObject player;
-    PlayerStats playerStats;
-    PlayerItems playerItems;
-
     //UI gameObjects
-    public Image[] hearts; //health
-    public Sprite[] heartSprite;
-    public Image powerupIcon;
-    public Text coinText, bombText, keyText;
-    public Text score;
+    [SerializeField] private Image[] hearts; //health, preset to 5 now, can add more
+    [SerializeField] private Sprite[] heartSprite; //full, half, empty, soul full, soul half
+    [SerializeField] private Text scoreText, coinText, bombText, keyText, pickupText;
 
     //vars to be replace
-    public int playerHealth, fullHealth;
-    public string powerupInUsed;
+    private GameObject player;
+    private PlayerStats playerStats;
+    private PlayerItems playerItems;
+    [SerializeField] private int playerHealth, fullHealth, score, coins, bombs, keys;
+    [SerializeField] private string powerupInUse;
+    private bool pickedUped = false; //check if need to display pickup text
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManagerobj = GameObject.Find("GameManager");
-        gameManager = gameManagerobj.GetComponent<GameManager>();
-
         player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
         playerItems = player.GetComponent<PlayerItems>();
@@ -37,91 +29,139 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //update health bar
+        UpdateHealth();
+        UpdateCollectables();
+        ShowPickupText();
+        //update score, add score cal some point later
+        scoreText.text = "SCORE: " + score.ToString();
+    }
+
+    private void UpdateHealth()
+    {
+        playerHealth = playerStats.GetCurrentHealth();
+        fullHealth = playerStats.GetMaxHealth();
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (fullHealth / 2 > i)
+            if (fullHealth >= playerHealth)
             {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
-        }
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            if (playerHealth > i * 2)
-            {
-                if (playerHealth - 1 > i * 2)
+                if (fullHealth / 2.0 > i)
                 {
-                    hearts[i].sprite = heartSprite[0];
+                    hearts[i].enabled = true;
                 }
                 else
                 {
-                    hearts[i].sprite = heartSprite[1];
+                    hearts[i].enabled = false;
                 }
             }
             else
             {
-                hearts[i].sprite = heartSprite[2];
+                if (playerHealth / 2.0 > i)
+                {
+                    hearts[i].enabled = true;
+                }
+                else
+                {
+                    hearts[i].enabled = false;
+                }
+            }
+            
+        }
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (fullHealth >= playerHealth)
+            {
+                if (playerHealth > i * 2)
+                {
+                    if (playerHealth - 1 > i * 2)
+                    {
+                        hearts[i].sprite = heartSprite[0];
+                    }
+                    else
+                    {
+                        hearts[i].sprite = heartSprite[1];
+                    }
+                }
+                else
+                {
+                    hearts[i].sprite = heartSprite[2];
+                }
+            }
+            else
+            {
+                if (fullHealth > i * 2)
+                {
+                    if (fullHealth - 1 > i * 2)
+                    {
+                        hearts[i].sprite = heartSprite[0];
+                    }
+                    else
+                    {
+                        hearts[i].sprite = heartSprite[1];
+                    }
+                }else if (playerHealth > i * 2)
+                {
+                    if (playerHealth - 1 > i * 2)
+                    {
+                        hearts[i].sprite = heartSprite[3];
+                    }
+                    else
+                    {
+                        hearts[i].sprite = heartSprite[4];
+                    }
+                }
+                else
+                {
+                    hearts[i].sprite = heartSprite[2];
+                }
             }
         }
+    }
 
-        //collectable texts
-        if (playerItems.GetCoins() < 10)
+    private void UpdateCollectables()
+    {
+        coins = playerItems.GetCoins();
+        bombs = playerItems.GetBombs();
+        keys = playerItems.GetKeys();
+        if (coins < 10)
         {
-            coinText.text = "x0" + playerItems.GetCoins().ToString();
+            coinText.text = "x0" + coins.ToString();
         }
         else
         {
-            coinText.text = "x" + playerItems.GetCoins().ToString();
+            coinText.text = "x" + coins.ToString();
         }
-        if (playerItems.GetBombs() < 10)
+        if (bombs < 10)
         {
-            bombText.text = "x0" + playerItems.GetBombs().ToString();
+            bombText.text = "x0" + bombs.ToString();
         }
         else
         {
-            bombText.text = "x" + playerItems.GetBombs().ToString();
+            bombText.text = "x" + bombs.ToString();
         }
-        if (playerItems.GetKeys() < 10)
+        if (keys < 10)
         {
-            keyText.text = "x0" + playerItems.GetKeys().ToString();
+            keyText.text = "x0" + keys.ToString();
         }
         else
         {
-            keyText.text = "x" + playerItems.GetKeys().ToString();
+            keyText.text = "x" + keys.ToString();
         }
+    }
 
-       score.text = "SCORE: " + gameManager.GetScore().ToString();
+    private void ShowPickupText()
+    {
+        // add ways to put name & description to powerupInUse later
+        if (pickedUped)
+        {
+            StartCoroutine(Show());
+        }
+    }
 
-        // 000000
-        if(gameManager.GetScore() < 10)
-        {
-            score.text = "SCORE: 00000" + gameManager.GetScore().ToString();
-        }
-        else if (gameManager.GetScore() >= 10 && gameManager.GetScore() < 100)
-        {
-            score.text = "SCORE: 0000" + gameManager.GetScore().ToString();
-        }
-        else if (gameManager.GetScore() >= 100 && gameManager.GetScore() < 1000)
-        {
-            score.text = "SCORE: 000" + gameManager.GetScore().ToString();
-        }
-        else if (gameManager.GetScore() >= 1000 && gameManager.GetScore() < 10000)
-        {
-            score.text = "SCORE: 00" + gameManager.GetScore().ToString();
-        }
-        else if (gameManager.GetScore() >= 10000 && gameManager.GetScore() < 10000)
-        {
-            score.text = "SCORE: 0" + gameManager.GetScore().ToString();
-        }
-        else
-        {
-            score.text = "SCORE: " + gameManager.GetScore().ToString();
-        }
-
-
+    IEnumerator Show()
+    {
+        pickedUped = false;
+        pickupText.text = powerupInUse;
+        yield return new WaitForSeconds(1f);
+        pickupText.text = "";
     }
 }
