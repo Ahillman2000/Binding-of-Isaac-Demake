@@ -18,3 +18,6 @@ player movement:
 attack / use:
 
  Spacebar / gamepad button South
+
+
+(It's called binding of Jeremy really (〜￣▽￣)〜)
