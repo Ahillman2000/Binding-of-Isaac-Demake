@@ -909,7 +909,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2941391085782238137}
   - component: {fileID: 392668101401781065}
-  - component: {fileID: 5350087791778589958}
   m_Layer: 0
   m_Name: Room Dead End L
   m_TagString: Rooms
@@ -932,6 +931,8 @@ Transform:
   - {fileID: 2941391085389671629}
   - {fileID: 2941391086419748375}
   - {fileID: 550342685929607208}
+  - {fileID: 772650324382115713}
+  - {fileID: 180953700664565662}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -948,6 +949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomInstance: 0
+  itemSpawner: {fileID: 180953700664565660}
 --- !u!1 &2941391085847196161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,3 +1913,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599cf9295af7f6e41beee00d26aa963c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &8253198586981908953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2941391085782238137}
+    m_Modifications:
+    - target: {fileID: 8073722737592852037, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_Name
+      value: ItemSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852038, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: isRandomized
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+--- !u!1 &180953700664565660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8073722737592852037, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+  m_PrefabInstance: {fileID: 8253198586981908953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &180953700664565662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+  m_PrefabInstance: {fileID: 8253198586981908953}
+  m_PrefabAsset: {fileID: 0}

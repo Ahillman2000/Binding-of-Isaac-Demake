@@ -22,7 +22,7 @@ public class spawnPoint : MonoBehaviour
         rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
         generationTime = rooms.room_count * spawnTime;
         Invoke("Spawn", spawnTime);
-        if(rooms.rooms.Count >= rooms.room_count)
+        if(rooms.RoomList.Count >= rooms.room_count)
         {
             CancelInvoke();
         }

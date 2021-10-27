@@ -5,21 +5,22 @@ using UnityEngine;
 public class AddRoom : MonoBehaviour
 {
     public enum roomType {EMPTY, ITEM, ENEMY, BOSS, NumberOfTypes};
-    [SerializeField]
     public roomType roomInstance;
     private int random;
     private RoomDatabase rooms;
+    public GameObject itemSpawner;
 
     private void Start()
     {
+        rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
+        itemSpawner.GetComponent<ItemSpawner>().enabled = false;
         random = Random.Range(0, (int)roomType.NumberOfTypes);
         roomInstance = (roomType)random;
-        if(roomInstance == roomType.BOSS)
+        if(roomInstance == roomType.BOSS || roomInstance == roomType.ITEM)
         {
             roomInstance = roomType.EMPTY;
         }
-
-        rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
-        rooms.rooms.Add(this.gameObject);       
+        
+        rooms.RoomList.Add(this.gameObject);
     }
 }

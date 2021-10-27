@@ -14,12 +14,12 @@ public class RoomDatabase : MonoBehaviour
 
     public GameObject door;
 
-    public int room_count;
+    public int room_count = 10;
 
-    public List<GameObject> rooms;
+    public List<GameObject> RoomList;
     
     private int rand;
-    private float waitTime = 3.0f;
+    private float waitTime = 5.0f;
     private bool spawnBoss;
 
     private void Start()
@@ -37,15 +37,23 @@ public class RoomDatabase : MonoBehaviour
     {
         if (waitTime <= 0 && spawnBoss == false)
         {
-            for (int i = 0; i < rooms.Count; i++)
-            {
-                if (i == rooms.Count - 1)
-                {
-                    rooms[i].GetComponent<AddRoom>().roomInstance = AddRoom.roomType.BOSS;
-                    spawnBoss = true;
-                }
-            }
+            rand = Random.Range(1, RoomList.Count);
 
+            RoomList[rand].GetComponent<AddRoom>().roomInstance = AddRoom.roomType.ITEM;
+            RoomList[rand].GetComponent<AddRoom>().itemSpawner.GetComponent<ItemSpawner>().enabled = true;
+            for (int i = 0; i < RoomList.Count; i++)
+            {
+                if(i > rand || i < rand)
+                {
+                    Destroy(RoomList[i].GetComponent<AddRoom>().itemSpawner);
+                }
+
+                if (i == RoomList.Count - 1)
+                {
+                    RoomList[i].GetComponent<AddRoom>().roomInstance = AddRoom.roomType.BOSS;
+                    spawnBoss = true;
+                }   
+            }
         }
         else if (waitTime > 0 && spawnBoss == false)
         {
