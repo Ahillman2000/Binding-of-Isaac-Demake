@@ -126,21 +126,23 @@ public class PlayerManager : MonoBehaviour
             case
                 Constants.TAG_FHP:
                 playerStats.SetCurrentHealth(playerStats.GetCurrentHealth() + 2);
+                playerStats.ResetHealth();
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
                 return true;
             case
                 Constants.TAG_HHP:
                 playerStats.SetCurrentHealth(playerStats.GetCurrentHealth() + 1);
+                playerStats.ResetHealth();
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
                 return true;
             case
                 Constants.TAG_FSHP:
-
+                playerStats.SetSoulHealth(playerStats.GetsoulHealth() + 2);
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
                 return true;
             case
                 Constants.TAG_HSHP:
-
+                playerStats.SetSoulHealth(playerStats.GetsoulHealth() + 1);
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
                 return true;
 

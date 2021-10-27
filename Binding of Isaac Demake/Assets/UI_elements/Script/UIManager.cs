@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     private PlayerItems playerItems;
     private GameObject gameManagerobj;
     private GameManager gameManager;
-    [SerializeField] private int playerHealth, fullHealth, score, coins, bombs, keys;
+    [SerializeField] private int playerHealth, fullHealth, soulHealth, score, coins, bombs, keys;
     [SerializeField] private string powerupInUse;
     private bool pickedUped = false; //check if need to display pickup text
 
@@ -44,78 +44,58 @@ public class UIManager : MonoBehaviour
     {
         playerHealth = playerStats.GetCurrentHealth();
         fullHealth = playerStats.GetMaxHealth();
+        soulHealth = playerStats.GetsoulHealth();
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (fullHealth >= playerHealth)
+            if (playerHealth / 2.0 > i)
             {
-                if (fullHealth / 2.0 > i)
-                {
-                    hearts[i].enabled = true;
-                }
-                else
-                {
-                    hearts[i].enabled = false;
-                }
+                hearts[i].enabled = true;
             }
             else
             {
-                if (playerHealth / 2.0 > i)
-                {
-                    hearts[i].enabled = true;
-                }
-                else
-                {
-                    hearts[i].enabled = false;
-                }
+                hearts[i].enabled = false;
             }
-            
+        }
+        for (int i = 0; i < soulhearts.Length; i++)
+        {
+            if (soulHealth / 2.0 > i)
+            {
+                soulhearts[i].enabled = true;
+            }
+            else
+            {
+                soulhearts[i].enabled = false;
+            }
         }
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (fullHealth >= playerHealth)
+            if (playerHealth > i * 2)
             {
-                if (playerHealth > i * 2)
+                if (playerHealth - 1 > i * 2)
                 {
-                    if (playerHealth - 1 > i * 2)
-                    {
-                        hearts[i].sprite = heartSprite[0];
-                    }
-                    else
-                    {
-                        hearts[i].sprite = heartSprite[1];
-                    }
+                    hearts[i].sprite = heartSprite[0];
                 }
                 else
                 {
-                    hearts[i].sprite = heartSprite[2];
+                    hearts[i].sprite = heartSprite[1];
                 }
             }
             else
             {
-                if (fullHealth > i * 2)
+                hearts[i].sprite = heartSprite[2];
+            }
+        }
+        for (int i = 0; i < soulhearts.Length; i++)
+        {
+            if (soulHealth > i * 2)
+            {
+                if (soulHealth - 1 > i * 2)
                 {
-                    if (fullHealth - 1 > i * 2)
-                    {
-                        hearts[i].sprite = heartSprite[0];
-                    }
-                    else
-                    {
-                        hearts[i].sprite = heartSprite[1];
-                    }
-                }else if (playerHealth > i * 2)
-                {
-                    if (playerHealth - 1 > i * 2)
-                    {
-                        hearts[i].sprite = heartSprite[3];
-                    }
-                    else
-                    {
-                        hearts[i].sprite = heartSprite[4];
-                    }
+                    soulhearts[i].sprite = heartSprite[3];
                 }
                 else
                 {
-                    hearts[i].sprite = heartSprite[2];
+                    soulhearts[i].sprite = heartSprite[4];
                 }
             }
         }

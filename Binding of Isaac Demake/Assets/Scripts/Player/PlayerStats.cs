@@ -9,6 +9,8 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private int maxHealth = 6; // Player Heart Containers
 
+    [SerializeField] private int soulHealth = 0;
+
     [SerializeField] private int playerLives = 0; // PLayer Lives (All times at 0 Unless they have a 1UP item)
 
     [SerializeField] private float speed            = 3f;
@@ -47,6 +49,23 @@ public class PlayerStats : MonoBehaviour
     {
         return currentHealth;
     }
+    public void SetSoulHealth(int _soulHealth)
+    {
+        soulHealth = _soulHealth;
+    }
+    public int GetsoulHealth()
+    {
+        return soulHealth;
+    }
+
+    public void ResetHealth() //use in player manager
+    {
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
+
 
     public void SetSpeed(float _speed)
     {
@@ -109,8 +128,14 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int _damage)
     {
-        currentHealth -= _damage;
-
+        if (soulHealth > 0)
+        {
+            soulHealth -= _damage;
+        }
+        else
+        {
+            currentHealth -= _damage;
+        }
         if(currentHealth <= 0)
         {
             Die();
