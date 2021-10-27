@@ -47,7 +47,7 @@ public class RoomDatabase : MonoBehaviour
             }
 
         }
-        else
+        else if (waitTime > 0 && spawnBoss == false)
         {
             waitTime -= Time.deltaTime;
         }
