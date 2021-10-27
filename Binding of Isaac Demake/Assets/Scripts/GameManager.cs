@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerItems playerItems;
 
-    private float floatScore = 0;
+    private float floatScore = 500;
     private int intScore;
 
     void Start()
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Score()
     {
-        floatScore += Time.deltaTime;
+        floatScore -= Time.deltaTime;
         intScore = (int)floatScore;
     }
 

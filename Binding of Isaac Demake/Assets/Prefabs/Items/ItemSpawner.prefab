@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8073722737592852037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8073722737592852039}
+  - component: {fileID: 8073722737592852038}
+  m_Layer: 0
+  m_Name: ItemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8073722737592852039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073722737592852037}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0021379853, w: 0.99999774}
+  m_LocalPosition: {x: -0.3967774, y: 1.92, z: -3.486023}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.245}
+--- !u!114 &8073722737592852038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073722737592852037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a8252f190f5d343a4c89797ee94e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToSpawn:
+  - {fileID: 5895796531972220102, guid: 182df81c20981d0428a3fc6ec4b5f5ba, type: 3}
+  - {fileID: 5895796531972220102, guid: 8229f780c8651314a824b2aeeeb9d7d9, type: 3}
+  - {fileID: 5895796531972220102, guid: b679536db199f624d9fdc5bfc7ce7884, type: 3}
+  - {fileID: 5895796531972220102, guid: 3878b378bd567d34e97e505f51433e49, type: 3}
+  - {fileID: 5895796531972220102, guid: 417e22634d8952e488ff8a9bb29208b3, type: 3}
+  - {fileID: 5895796531972220102, guid: 051893c5d69dafe4aa7660946261419c, type: 3}
+  - {fileID: 5895796531972220102, guid: dd532edd4c9037a449bc4c6f310f9b6e, type: 3}
+  - {fileID: 5895796531972220102, guid: 7fa8588e2f4c6c24bbb36b5f31e3ecfc, type: 3}
+  - {fileID: 5895796531972220102, guid: 860dc7abf18349740aa4c87d8430165c, type: 3}
+  isRandomized: 0

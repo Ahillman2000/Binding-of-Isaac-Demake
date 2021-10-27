@@ -13,6 +13,7 @@ public class PickUp : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerScript>();
     }*/
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         /*if(collision.gameObject.CompareTag("Player"))
@@ -21,7 +22,7 @@ public class PickUp : MonoBehaviour
            //playerScript.SetSpeed(playerScript.GetSpeed() + 1.0f);
             Destroy(gameObject);
         }*/
-
+      
         PlayerManager manager = collision.GetComponent<PlayerManager>();
         if(manager)
         {

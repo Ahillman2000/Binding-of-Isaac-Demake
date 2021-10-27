@@ -8,6 +8,9 @@ public class PlayerItems : MonoBehaviour
     [SerializeField] private int keys  = 0;
     [SerializeField] private int bombs = 0;
 
+    [SerializeField] private float coinDamage = 0.04f; // This is used for the Money = Power item ( 1 coin would give the player 0.04 damage)
+    [SerializeField] private float coinDamageAC = 0f;    // overall damage is acumulated here, once M=P it will be used for the calculation
+
     void Start()
     {
         
@@ -21,6 +24,23 @@ public class PlayerItems : MonoBehaviour
     public void SetCoins(int _coins)
     {
         coins = _coins;
+    }
+
+    //Vlad Edit
+    public float GetCoinDamage()
+    {
+        return coinDamage;
+    }
+
+    // multiply the number of coins by  0.04 ( coin Damage)
+
+    public float GetCoinDamageAC()
+    {
+        return coinDamageAC;
+    }
+    public void SetCoinDamageAC(float _coinDamageAC)
+    {
+        coinDamageAC = _coinDamageAC;
     }
 
     public int GetKeys()
@@ -45,6 +65,7 @@ public class PlayerItems : MonoBehaviour
 
     void Update()
     {
-        
+        //coinDamageAC = coins * coinDamage;
+        // SetCoinDamageAC(coinDamageAC);
     }
 }

@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
-    private int currentHealth                       = 0;
+    [SerializeField] private int currentHealth = 6; // Player Curent health (Red Hearts)
 
-    [SerializeField] private int maxHealth          = 3;
+    [SerializeField] private int maxHealth = 6; // Player Heart Containers
 
-    [SerializeField] private int playerLives        = 0;
-    
+    [SerializeField] private int playerLives = 0; // PLayer Lives (All times at 0 Unless they have a 1UP item)
+
     [SerializeField] private float speed            = 3f;
 
     [SerializeField] private float attackDamage     = 1.0f;
 
-    [SerializeField] private float damageMultiplier = 1.0f;
+    [SerializeField] private float damageMultiplier = 0f;
 
     [SerializeField] private float shotVelocity     = 0.8f;
 
