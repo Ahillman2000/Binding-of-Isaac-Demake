@@ -18,11 +18,17 @@ public class Projectile : MonoBehaviour
 		Destroy(gameObject, 3f);
 	}
 
-	void OnTriggerEnter2D(Collider2D col)
-	{
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
 		if (col.gameObject.Equals(target))
 		{
 			Debug.Log("Hit!");
+		}
+
+		if(!col.gameObject.CompareTag("Enemy"))
+        {
+			Debug.Log(col.gameObject.name);
 			Destroy(gameObject);
 		}
 	}

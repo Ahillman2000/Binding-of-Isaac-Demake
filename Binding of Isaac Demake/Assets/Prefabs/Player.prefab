@@ -149,12 +149,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc30280e4bac0f4685a65cb6e5dd39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 6
   maxHealth: 3
+  soulHealth: 0
   playerLives: 0
   speed: 3
   attackDamage: 1
   damageMultiplier: 1
   shotVelocity: 0.8
+  fireRate: 0.25
 --- !u!114 &6588356293312385914
 MonoBehaviour:
   m_ObjectHideFlags: 0

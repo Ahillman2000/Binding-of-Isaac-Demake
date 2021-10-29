@@ -108,27 +108,27 @@ public class UIManager : MonoBehaviour
         keys = playerItems.GetKeys();
         if (coins < 10)
         {
-            coinText.text = "x0" + coins.ToString();
+            coinText.text = "0" + coins.ToString();
         }
         else
         {
-            coinText.text = "x" + coins.ToString();
+            coinText.text = "" + coins.ToString();
         }
         if (bombs < 10)
         {
-            bombText.text = "x0" + bombs.ToString();
+            bombText.text = "0" + bombs.ToString();
         }
         else
         {
-            bombText.text = "x" + bombs.ToString();
+            bombText.text = "" + bombs.ToString();
         }
         if (keys < 10)
         {
-            keyText.text = "x0" + keys.ToString();
+            keyText.text = "0" + keys.ToString();
         }
         else
         {
-            keyText.text = "x" + keys.ToString();
+            keyText.text = "" + keys.ToString();
         }
     }
 
@@ -155,27 +155,27 @@ public class UIManager : MonoBehaviour
         score = gameManager.GetScore();
         if (score > 99999)
         {
-            scoreText.text = "SCORE: " + score.ToString();
+            scoreText.text = "" + score.ToString();
         }
         else if (score > 9999)
         {
-            scoreText.text = "SCORE: 0" + score.ToString();
+            scoreText.text = "0" + score.ToString();
         }
         else if (score > 999)
         {
-            scoreText.text = "SCORE: 00" + score.ToString();
+            scoreText.text = "00" + score.ToString();
         }
         else if (score > 99)
         {
-            scoreText.text = "SCORE: 000" + score.ToString();
+            scoreText.text = "000" + score.ToString();
         }
         else if (score > 9)
         {
-            scoreText.text = "SCORE: 0000" + score.ToString();
+            scoreText.text = "0000" + score.ToString();
         }
         else
         {
-            scoreText.text = "SCORE: 00000" + score.ToString();
+            scoreText.text = "00000" + score.ToString();
         }
 
     }

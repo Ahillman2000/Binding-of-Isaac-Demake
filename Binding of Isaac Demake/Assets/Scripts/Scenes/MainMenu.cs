@@ -49,7 +49,6 @@ public class MainMenu : MonoBehaviour
         {
 
         }
-        Debug.Log(yInput);
     }
 
     public void PlayGame()

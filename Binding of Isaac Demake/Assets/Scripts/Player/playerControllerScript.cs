@@ -32,6 +32,8 @@ public class playerControllerScript : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 30;
+
         playerStats = this.GetComponent<PlayerStats>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
