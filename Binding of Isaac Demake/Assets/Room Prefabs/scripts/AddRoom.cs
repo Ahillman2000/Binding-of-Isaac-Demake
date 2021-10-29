@@ -6,12 +6,16 @@ public class AddRoom : MonoBehaviour
 {
     public enum roomType {EMPTY, ITEM, ENEMY, BOSS, NumberOfTypes};
     public roomType roomInstance;
+    public GameObject itemSpawner;
+    public bool visited = false;
+    
     private int random;
     private RoomDatabase rooms;
-    public GameObject itemSpawner;
+    private GameObject player;
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player");
         rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
         itemSpawner.GetComponent<ItemSpawner>().enabled = false;
         gameObject.GetComponent<EnemySpawner>().enabled = false;
@@ -24,5 +28,13 @@ public class AddRoom : MonoBehaviour
 
         rooms.RoomList[0].GetComponent<AddRoom>().roomInstance = roomType.EMPTY;
         rooms.RoomList.Add(this.gameObject);
+    }
+
+    private void Update()
+    {
+        if(player.transform.position == this.transform.position)
+        {
+            visited = true;
+        }
     }
 }
