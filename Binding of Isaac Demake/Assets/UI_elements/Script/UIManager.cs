@@ -10,16 +10,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image[] soulhearts;
     [SerializeField] private Sprite[] heartSprite; //full, half, empty, soul full, soul half
     [SerializeField] private Text scoreText, coinText, bombText, keyText, pickupText;
+    [SerializeField] private GameObject bossUI;
+    [SerializeField] private Slider slider;
 
     //vars to be replace
-    private GameObject player;
+    private GameObject player, gameManagerobj, boss;
     private PlayerStats playerStats;
     private PlayerItems playerItems;
-    private GameObject gameManagerobj;
     private GameManager gameManager;
-    [SerializeField] private int playerHealth, fullHealth, soulHealth, score, coins, bombs, keys;
+    [SerializeField] private int playerHealth, fullHealth, soulHealth, score, coins, bombs, keys, bossFullHealth, bossCurrentHealth;
     [SerializeField] private string powerupInUse;
     private bool pickedUped = false; //check if need to display pickup text
+    private bool haveBoss = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class UIManager : MonoBehaviour
         playerItems = player.GetComponent<PlayerItems>();
         gameManagerobj = GameObject.Find("GameManager");
         gameManager = gameManagerobj.GetComponent<GameManager>();
+        bossUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,8 +39,28 @@ public class UIManager : MonoBehaviour
     {
         UpdateHealth();
         UpdateCollectables();
-        //ShowPickupText();
         UpdateScore();
+        if (GameObject.FindGameObjectWithTag("Boss") != null)
+        {
+            if (!haveBoss)
+            {
+                boss = GameObject.FindGameObjectWithTag("Boss");
+                bossUI.SetActive(true);
+                //add code to get bossFullHealth
+                slider.maxValue = bossFullHealth;
+                haveBoss = true; // so it won't constantly set boss
+            }
+        }
+        else
+        {
+            bossUI.SetActive(false);
+            haveBoss = false;
+        }
+        if (haveBoss)
+        {
+            //add code to get bossCurrentHealth
+            slider.value = bossCurrentHealth;
+        }
     }
 
     private void UpdateHealth()
@@ -47,7 +70,7 @@ public class UIManager : MonoBehaviour
         soulHealth = playerStats.GetsoulHealth();
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (playerHealth / 2.0 > i)
+            if (fullHealth / 2.0 > i)
             {
                 hearts[i].enabled = true;
             }

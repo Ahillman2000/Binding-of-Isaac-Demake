@@ -3,7 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SpawnPoint
+  - Rooms
+  - doorSpawner
+  - Enemy
+  - MM
+  - Halo
+  - GM
+  - RR
+  - Virus
+  - PH
+  - 1UP
+  - PT
+  - MEP
+  - Projectile
+  - RoomManager
+  - Boss
   layers:
   - Default
   - TransparentFX
