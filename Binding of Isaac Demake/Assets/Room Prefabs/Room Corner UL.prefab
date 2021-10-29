@@ -1692,7 +1692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8556119444259478806}
   - component: {fileID: -3161723426412939099}
-  - component: {fileID: -1495823349407570262}
+  - component: {fileID: 3393243699341654174}
   m_Layer: 0
   m_Name: Room Corner UL
   m_TagString: Rooms
@@ -1739,7 +1739,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomInstance: 0
   itemSpawner: {fileID: 6615116676083440242}
---- !u!114 &-1495823349407570262
+  visited: 0
+--- !u!114 &3393243699341654174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1751,11 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a891451077148b34baaed699794ff7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-  - prefab: {fileID: 0}
-    count: 0
-  - prefab: {fileID: 0}
-    count: 0
+  enemy: []
   random_enemy:
   - {fileID: 6975984791201948564, guid: a6920367a7182a9419f2d302dddbcd41, type: 3}
   - {fileID: 5660636783593482625, guid: 07856c339d37171439eb5a4363db1ddb, type: 3}

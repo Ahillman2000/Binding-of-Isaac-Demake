@@ -18,16 +18,18 @@ public class AddRoom : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
         itemSpawner.GetComponent<ItemSpawner>().enabled = false;
-        gameObject.GetComponent<EnemySpawner>().enabled = false;
+        this.gameObject.GetComponent<EnemySpawner>().enabled = false;
+
         random = Random.Range(0, (int)roomType.NumberOfTypes);
         roomInstance = (roomType)random;
         if(roomInstance == roomType.BOSS || roomInstance == roomType.ITEM)
         {
             roomInstance = roomType.EMPTY;
         }
-
-        rooms.RoomList[0].GetComponent<AddRoom>().roomInstance = roomType.EMPTY;
+        
         rooms.RoomList.Add(this.gameObject);
+        rooms.RoomList[0].GetComponent<AddRoom>().roomInstance = roomType.EMPTY;
+        
     }
 
     private void Update()
