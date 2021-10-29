@@ -69,14 +69,9 @@ public class spawnPoint : MonoBehaviour
     {
         if (collision.CompareTag("SpawnPoint"))
         {
-            if(collision.GetComponent<spawnPoint>().spawns == false && spawns == false)
+            if (collision.GetComponent<spawnPoint>().spawns == false && spawns == false)
             {
-                if(transform.position.x != 0 && transform.position.y != 0)
-                {
-                    Instantiate(rooms.closed_room, transform.position, Quaternion.identity);
-                    Destroy(gameObject);
-                }
-                
+                Destroy(gameObject);
             }
             
             spawns = true;

@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         Vector2 spawner_pos = transform.position;
 
-        /// If player is within spawn room then spawn no enemies (dumb fix)
+        /// If player is within spawn room then spawn no enemies (dumb fix) Uhhhh? Literally the opposite of how the game works?
         if (player.transform.position == this.transform.position)
         {
             room_capacity = 0;
@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if (enemy.Length > i)
             {
-                for (int j = 0; j < enemy[i].count; j++)
+                for (int j = 0; j < enemy[i].count; j++) //what is this second for loop for?
                 {
                     /// Generate random position
                     Vector2 random_pos;

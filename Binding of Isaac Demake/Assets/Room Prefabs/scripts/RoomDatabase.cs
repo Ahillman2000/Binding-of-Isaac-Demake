@@ -10,7 +10,6 @@ public class RoomDatabase : MonoBehaviour
     public GameObject[] left_facing;
 
     public GameObject[] entry_room;
-    public GameObject closed_room;
 
     public GameObject door;
 
@@ -43,9 +42,14 @@ public class RoomDatabase : MonoBehaviour
             RoomList[rand].GetComponent<AddRoom>().itemSpawner.GetComponent<ItemSpawner>().enabled = true;
             for (int i = 0; i < RoomList.Count; i++)
             {
-                if(i > rand || i < rand)
+                if(i != rand)
                 {
                     Destroy(RoomList[i].GetComponent<AddRoom>().itemSpawner);
+                }
+
+                if(RoomList[i].GetComponent<AddRoom>().roomInstance == AddRoom.roomType.ENEMY)
+                {
+                    RoomList[i].GetComponent<EnemySpawner>().enabled = true;
                 }
 
                 if (i == RoomList.Count - 1)

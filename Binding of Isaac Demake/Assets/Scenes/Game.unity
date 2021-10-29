@@ -402,7 +402,7 @@ Transform:
   m_Children:
   - {fileID: 458345461}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &967872282
 MonoBehaviour:
@@ -480,7 +480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1379825159
 PrefabInstance:
@@ -515,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8775159240073536777, guid: b507983b4fd1fe742b7deeb66e59a68b, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8775159240073536777, guid: b507983b4fd1fe742b7deeb66e59a68b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1007,7 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167040221390569851, guid: be885135cbc003440b6786297feff9a2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4167040221390569851, guid: be885135cbc003440b6786297feff9a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1161,6 +1161,8 @@ MonoBehaviour:
   - {fileID: 138492022476076226, guid: 37757388631280949b616fec8003f2af, type: 3}
   - {fileID: 138492022476076226, guid: 37757388631280949b616fec8003f2af, type: 3}
   - {fileID: 138492022476076226, guid: 37757388631280949b616fec8003f2af, type: 3}
+  - {fileID: 934428857115253466, guid: 0a93fb56221873d4c9ec588cdfd51871, type: 3}
+  - {fileID: 4325248233462403150, guid: 0d63aad18e989c84ca9ac7a14a0f327e, type: 3}
   right_facing:
   - {fileID: 8121518383130065594, guid: cf2aa59f6910b6c4ea20d37a8f34aacd, type: 3}
   - {fileID: 7704880539258989902, guid: 830c504239493404aada613367b61607, type: 3}
@@ -1190,7 +1192,6 @@ MonoBehaviour:
   - {fileID: 1997580574394506836, guid: 202dbe53a3578684387cfb49fd1cde76, type: 3}
   - {fileID: 4578688863088630655, guid: b8aa9fdf7bea89e44b6d33802a58c9b2, type: 3}
   - {fileID: 8556119444259478807, guid: e69790dc1269b244c822cd7fa97aeb61, type: 3}
-  closed_room: {fileID: 1080422877357236648, guid: 78c8626a0b3502b4492a771bcf0d9cb0, type: 3}
   door: {fileID: 637315203832661859, guid: a247bb43f714c02498cf744b4660ca7e, type: 3}
   room_count: 10
   RoomList: []
