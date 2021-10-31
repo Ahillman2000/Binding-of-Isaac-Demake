@@ -20,6 +20,7 @@ TagManager:
   - Projectile
   - RoomManager
   - Boss
+  - PooterProjectile
   layers:
   - Default
   - TransparentFX

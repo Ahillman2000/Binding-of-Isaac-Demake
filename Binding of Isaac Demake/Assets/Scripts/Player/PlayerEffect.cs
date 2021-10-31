@@ -32,7 +32,7 @@ public class PlayerEffect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" || collision.tag == "PooterProjectile")
         {
             StartCoroutine(DamageBlinkEffect());
         }

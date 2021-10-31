@@ -13,7 +13,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Start()
     {
-        fireRate = 1.5F;
+        fireRate = 3.0F;
         nextFire = Time.time;
 
         player = GameObject.FindWithTag("Player");
