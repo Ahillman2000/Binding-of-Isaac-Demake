@@ -50,6 +50,7 @@ public class PlayerShooting : MonoBehaviour
     private void FireTear()
     {
         Instantiate(tearsPrefab, firePoint.position, firePoint.rotation);
+        FindObjectOfType<AudioManager>().Play("Shoot");
     }
 
     private void OnDisable()

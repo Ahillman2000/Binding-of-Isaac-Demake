@@ -112,38 +112,45 @@ public class PlayerManager : MonoBehaviour
                 playerItems.SetCoins(playerItems.GetCoins() + 1);
                 playerItems.SetCoinDamageAC(playerItems.GetCoins() * playerItems.GetCoinDamage());
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
+                FindObjectOfType<AudioManager>().Play("Coin");             
                 return true;
             case
                 Constants.TAG_BOMB:
                 playerItems.SetBombs(playerItems.GetBombs() + 1);
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
+                FindObjectOfType<AudioManager>().Play("PickUps");
                 return true;
             case
                 Constants.TAG_KEY:
                 playerItems.SetKeys(playerItems.GetKeys() + 1);
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
+                FindObjectOfType<AudioManager>().Play("PickUps");
                 return true;
             case
                 Constants.TAG_FHP:
                 playerStats.SetCurrentHealth(playerStats.GetCurrentHealth() + 2);
                 playerStats.ResetHealth();
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
+                FindObjectOfType<AudioManager>().Play("PickUps");
                 return true;
             case
                 Constants.TAG_HHP:
                 playerStats.SetCurrentHealth(playerStats.GetCurrentHealth() + 1);
                 playerStats.ResetHealth();
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
+                FindObjectOfType<AudioManager>().Play("PickUps");
                 return true;
             case
                 Constants.TAG_FSHP:
                 playerStats.SetSoulHealth(playerStats.GetsoulHealth() + 2);
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
+                FindObjectOfType<AudioManager>().Play("PickUps");
                 return true;
             case
                 Constants.TAG_HSHP:
                 playerStats.SetSoulHealth(playerStats.GetsoulHealth() + 1);
                 gameManager.SetScore(gameManager.GetScore() + GenerateRandomNumber());
+                FindObjectOfType<AudioManager>().Play("PickUps");
                 return true;
 
             default:

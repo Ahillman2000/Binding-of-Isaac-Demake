@@ -43,10 +43,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b8681d7fde83444869e1c960384d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24300002, guid: b20346fc81a14b8418b1ed876e9278dc, type: 2}
   sounds:
   - name: PowerUp
     clip: {fileID: 8300000, guid: 145b3203e6a880d4e9b300c35258ae41, type: 3}
-    volume: 0.337
-    pitch: 0.7
+    volume: 0.203
+    volumeVariance: 0.1
+    pitch: 0.4
+    pitchVariance: 0.068
     loop: 0
+    mixerGroup: {fileID: 24300002, guid: b20346fc81a14b8418b1ed876e9278dc, type: 2}
+    source: {fileID: 0}
+  - name: Coin
+    clip: {fileID: 8300000, guid: 145b3203e6a880d4e9b300c35258ae41, type: 3}
+    volume: 0.203
+    volumeVariance: 0.1
+    pitch: 0.4
+    pitchVariance: 0.068
+    loop: 0
+    mixerGroup: {fileID: 24300002, guid: b20346fc81a14b8418b1ed876e9278dc, type: 2}
     source: {fileID: 0}

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerStats = player.GetComponent<PlayerStats>();
         playerItems = player.GetComponent<PlayerItems>();
+        FindObjectOfType<AudioManager>().Play("GamePlay");
     }
 
     private void Score()
