@@ -21,6 +21,8 @@ TagManager:
   - RoomManager
   - Boss
   - PooterProjectile
+  - Door
+  - BossDoor
   layers:
   - Default
   - TransparentFX
