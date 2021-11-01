@@ -5,33 +5,40 @@ using UnityEngine;
 public class checkDoors : MonoBehaviour
 {
     private bool detected = false;
-    private float waitTime = 4;
+    private float waitTime = 4.0f;
     [SerializeField]
     private GameObject wall;
+    private RoomDatabase rooms;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "doorSpawner")
         {
             detected = true;
         }
+        
     }
 
     private void Update()
     {
-        waitTime -= Time.deltaTime;
+        
+        if(detected)
+        {
+            Destroy(this.gameObject);
+        }
+
+        
         if (waitTime <= 0)
         {
             if (!detected)
             {
                 Instantiate(wall, transform.parent.position, transform.rotation);
-                Destroy(gameObject);
                 detected = true;
             }
         }
-
-        if(detected)
+        else
         {
-            Destroy(this.gameObject);
+            waitTime -= Time.deltaTime;
         }
+        
     }
 }

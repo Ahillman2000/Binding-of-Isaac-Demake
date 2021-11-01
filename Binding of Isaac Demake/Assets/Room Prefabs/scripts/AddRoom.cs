@@ -34,7 +34,7 @@ public class AddRoom : MonoBehaviour
 
     private void Update()
     {
-        if(player.transform.position == this.transform.position)
+        if(player.transform.position == this.gameObject.transform.position)
         {
             visited = true;
         }
