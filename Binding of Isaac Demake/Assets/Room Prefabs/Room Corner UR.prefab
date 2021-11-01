@@ -731,6 +731,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1728324818205739102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9005004337507838545}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9005004337507838545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728324818205739102}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.44597277, y: 0.90963966, z: -1.8574088}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4147880452784204433}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2122092960847322864
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,6 +2272,7 @@ Transform:
   - {fileID: 3408435571698443792}
   - {fileID: 3415116771347303607}
   - {fileID: 7185633073090749801}
+  - {fileID: 9005004337507838545}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2260,6 +2291,8 @@ MonoBehaviour:
   roomInstance: 0
   itemSpawner: {fileID: 7840971447852169087}
   visited: 0
+  enemy_count_per_room: 0
+  enemyParent: {fileID: 1728324818205739102}
 --- !u!114 &274080840903903492
 MonoBehaviour:
   m_ObjectHideFlags: 0

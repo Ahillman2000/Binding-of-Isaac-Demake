@@ -11,8 +11,7 @@ public class OpenDoors : MonoBehaviour
 
     void Update()
     {
-        //if enemy count == 0, destroy all doors in this room
-        if (Room.visited == true )
+        if (Room.visited == true && Room.enemy_count_per_room == 0)
         {
             FindObjectOfType<AudioManager>().Play("Doors");
             foreach (Transform child in RoomObj.transform)

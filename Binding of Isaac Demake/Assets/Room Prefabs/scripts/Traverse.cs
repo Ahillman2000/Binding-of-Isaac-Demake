@@ -23,23 +23,26 @@ public class Traverse : MonoBehaviour
         {
             if (directon == DIRECTION.UP)
             {
-                Player.transform.position += new Vector3(Player.transform.position.x, Player.transform.position.y + 21, 0);
-                Camera.transform.position += new Vector3(Camera.transform.position.x, Camera.transform.position.y + 30, 0);
+                Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 25, 0);
+                Camera.transform.position = new Vector3(Camera.transform.position.x, Camera.transform.position.y + 30, 0);
             }
-            else if (directon == DIRECTION.DOWN)
+            
+            if (directon == DIRECTION.DOWN)
             {
-                Player.transform.position += new Vector3(Player.transform.position.x, Player.transform.position.y - 21, 0);
-                Camera.transform.position += new Vector3(Camera.transform.position.x, Camera.transform.position.y - 30, 0);
+                Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y - 25, 0);
+                Camera.transform.position = new Vector3(Camera.transform.position.x, Camera.transform.position.y - 30, 0);
             }
-            else if (directon == DIRECTION.RIGHT)
+            
+            if (directon == DIRECTION.RIGHT)
             {
-                Player.transform.position += new Vector3(Player.transform.position.x + 13, Player.transform.position.y, 0);
-                Camera.transform.position += new Vector3(Camera.transform.position.x + 30, Camera.transform.position.y, 0);
+                Player.transform.position = new Vector3(Player.transform.position.x + 21, Player.transform.position.y, 0);
+                Camera.transform.position = new Vector3(Camera.transform.position.x + 30, Camera.transform.position.y, 0);
             }
-            else if (directon == DIRECTION.LEFT)
+            
+            if (directon == DIRECTION.LEFT)
             {
-                Player.transform.position += new Vector3(Player.transform.position.x - 13, Player.transform.position.y, 0);
-                Camera.transform.position += new Vector3(Camera.transform.position.x - 30, Camera.transform.position.y, 0);
+                Player.transform.position = new Vector3(Player.transform.position.x - 21, Player.transform.position.y, 0);
+                Camera.transform.position = new Vector3(Camera.transform.position.x - 30, Camera.transform.position.y, 0);
             }
         }
     }
