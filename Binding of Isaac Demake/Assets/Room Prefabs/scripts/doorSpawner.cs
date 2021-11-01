@@ -5,7 +5,7 @@ using UnityEngine;
 public class doorSpawner : MonoBehaviour
 {
     private RoomDatabase rooms;
-    private float waitTime = 5.0f;
+    private float waitTime = 1.5f;
     void Start()
     {
         rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();

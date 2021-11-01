@@ -13,7 +13,7 @@ public class spawnPoint : MonoBehaviour
     private bool spawns;
 
     private float generationTime = 0;
-    private float spawnTime = 1;
+    private float spawnTime = 0.25F;
 
 
     private void Start()

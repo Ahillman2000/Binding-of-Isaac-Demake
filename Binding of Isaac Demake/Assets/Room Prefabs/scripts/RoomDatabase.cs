@@ -18,7 +18,7 @@ public class RoomDatabase : MonoBehaviour
     public List<GameObject> RoomList;
     
     private int rand;
-    private float waitTime = 5.0f;
+    private float waitTime = 1.5f;
     private bool spawnBoss;
 
     private void Start()

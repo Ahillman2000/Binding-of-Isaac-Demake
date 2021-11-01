@@ -5,7 +5,7 @@ using UnityEngine;
 public class checkDoors : MonoBehaviour
 {
     private bool detected = false;
-    private float waitTime = 4.0f;
+    private float waitTime = 1.0f;
     [SerializeField]
     private GameObject wall;
     private RoomDatabase rooms;
