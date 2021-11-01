@@ -2207,6 +2207,7 @@ GameObject:
   - component: {fileID: 8888982233148523135}
   - component: {fileID: 274080840903903492}
   - component: {fileID: 5606297335401419716}
+  - component: {fileID: 7613477709280778416}
   m_Layer: 0
   m_Name: Room Corner UR
   m_TagString: Rooms
@@ -2287,6 +2288,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de8ac695dd315f41819a0432c0daa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Room: {fileID: 8888982233148523135}
+  RoomObj: {fileID: 7704880539258989902}
+--- !u!61 &7613477709280778416
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7704880539258989902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.021940708, y: 0.021940947}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.961152, y: 6.8801513}
+  m_EdgeRadius: 0
 --- !u!1 &8010536527734718497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,14 +2645,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
---- !u!4 &7840971447852169085 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
-  m_PrefabInstance: {fileID: 2079284174732273978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7840971447852169087 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8073722737592852037, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+  m_PrefabInstance: {fileID: 2079284174732273978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7840971447852169085 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
   m_PrefabInstance: {fileID: 2079284174732273978}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6482547267066114336

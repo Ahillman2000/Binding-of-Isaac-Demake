@@ -4,27 +4,18 @@ using UnityEngine;
 
 public class OpenDoors : MonoBehaviour
 {
-    private EnemySpawner enemies;
+    [SerializeField]
     private AddRoom Room;
-
-    private GameObject player;
+    [SerializeField]
     private GameObject RoomObj;
-
-    private void Start()
-    {
-        player = GameObject.FindWithTag("Player");
-        Room = GameObject.FindGameObjectWithTag("Rooms").GetComponent<AddRoom>();
-        RoomObj = GameObject.FindGameObjectWithTag("Rooms");
-        enemies = GameObject.FindGameObjectWithTag("Rooms").GetComponent<EnemySpawner>();
-    }
 
     void Update()
     {
         //if enemy count == 0, destroy all doors in this room
-        if (this.Room.visited == true)
+        if (Room.visited == true )
         {
             FindObjectOfType<AudioManager>().Play("Doors");
-            foreach (Transform child in this.RoomObj.transform)
+            foreach (Transform child in RoomObj.transform)
             {
                 if (child.tag == "Door")
                 {

@@ -1462,6 +1462,7 @@ GameObject:
   - component: {fileID: -5306235317138571572}
   - component: {fileID: 250983103653486301}
   - component: {fileID: 6517574253813121040}
+  - component: {fileID: 2160568716530231896}
   m_Layer: 0
   m_Name: Room Dead End U
   m_TagString: Rooms
@@ -1536,6 +1537,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de8ac695dd315f41819a0432c0daa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Room: {fileID: -5306235317138571572}
+  RoomObj: {fileID: 3034635915275048123}
+--- !u!61 &2160568716530231896
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034635915275048123}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.021940708, y: 0.021940947}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.961152, y: 6.8801513}
+  m_EdgeRadius: 0
 --- !u!1 &3034635915447538665
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,14 +2408,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
---- !u!1 &1406311778211221060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8073722737592852037, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
-  m_PrefabInstance: {fileID: 7174121033250443265}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1406311778211221062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8073722737592852039, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
+  m_PrefabInstance: {fileID: 7174121033250443265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1406311778211221060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8073722737592852037, guid: 4dbe7b94f2a64ac4d8fbbb213af60cf1, type: 3}
   m_PrefabInstance: {fileID: 7174121033250443265}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7477573259933762144
