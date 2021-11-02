@@ -11,6 +11,11 @@ public class KeyUnlock : MonoBehaviour
         if(collision.tag == "Player")
         {
             keyed = true;
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
         }
     }
 }

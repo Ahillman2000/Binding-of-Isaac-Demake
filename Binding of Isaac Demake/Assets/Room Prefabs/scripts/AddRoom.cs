@@ -45,13 +45,6 @@ public class AddRoom : MonoBehaviour
 
     private void Update()
     {
-        foreach (Transform child in enemyParent.transform)
-        {
-            if (child.tag == "Enemy")
-            {
-                //enemy_count_per_room = gameObject.transform.childCount;
-            }
-        }
         enemy_count_per_room = enemyParent.transform.childCount;
     }
 
