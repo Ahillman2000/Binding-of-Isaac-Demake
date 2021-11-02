@@ -8,17 +8,17 @@ public class RoomDatabase : MonoBehaviour
     public GameObject[] bottom_facing;
     public GameObject[] right_facing;
     public GameObject[] left_facing;
-
+    private checkDoors check;
     public GameObject[] entry_room;
 
-    public GameObject door;
+    public GameObject[] door;
 
     public int room_count = 10;
 
     public List<GameObject> RoomList;
     
     private int rand;
-    private float waitTime = 5.0f;
+    private float waitTime = 1.5f;
     private bool spawnBoss;
 
     private void Start()
@@ -55,6 +55,16 @@ public class RoomDatabase : MonoBehaviour
                 if (i == RoomList.Count - 1)
                 {
                     RoomList[i].GetComponent<AddRoom>().roomInstance = AddRoom.roomType.BOSS;
+                    foreach(Transform child in RoomList[i].transform)
+                    {
+                        if(child.tag == "Door")
+                        {
+                            GameObject boss_door = Instantiate(door[1], child.transform.position, child.transform.rotation);
+                            Destroy(child.gameObject);
+                            check = boss_door.GetComponentInChildren<checkDoors>();
+                            check.enabled = true;
+                        }
+                    }
                     spawnBoss = true;
                 }   
             }

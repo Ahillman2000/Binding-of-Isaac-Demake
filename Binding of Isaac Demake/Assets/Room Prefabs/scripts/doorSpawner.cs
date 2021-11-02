@@ -5,11 +5,13 @@ using UnityEngine;
 public class doorSpawner : MonoBehaviour
 {
     private RoomDatabase rooms;
-    private float waitTime = 4.0f;
+    private float waitTime = 1.5f;
     void Start()
     {
         rooms = GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomDatabase>();
-        Instantiate(rooms.door, transform.position, transform.rotation);
+
+        GameObject door = Instantiate(rooms.door[0], transform.position, transform.rotation);
+        door.transform.parent = this.transform.parent;
         Destroy(gameObject, waitTime);
     }
 }
