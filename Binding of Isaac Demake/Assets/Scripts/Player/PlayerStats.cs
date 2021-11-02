@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private int currentHealth = 6; // Player Curent health (Red Hearts)
 
-    [SerializeField] private int maxHealth = 6; // Player Heart Containers
+    [SerializeField] private int HealthContainers = 6; // Player Heart Containers
 
     [SerializeField] private int soulHealth = 0;
 
@@ -29,16 +29,16 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = HealthContainers;
     }
 
     public void SetMaxHealth(int _maxHealth)
     {
-        maxHealth = _maxHealth;
+        HealthContainers = _maxHealth;
     }
     public int GetMaxHealth()
     {
-        return maxHealth;
+        return HealthContainers;
     }
 
     public void SetCurrentHealth(int _currentHealth)
@@ -60,9 +60,9 @@ public class PlayerStats : MonoBehaviour
 
     public void ResetHealth() //use in player manager
     {
-        if (currentHealth > maxHealth)
+        if (currentHealth > HealthContainers)
         {
-            currentHealth = maxHealth;
+            currentHealth = HealthContainers;
         }
     }
 

@@ -32,7 +32,6 @@ public class PlayerManager : MonoBehaviour
         return _number;
     }
 
-    //public bool PickUpItem(GameObject obj)
     public bool PickUpItem(GameObject obj)
     {
         switch (obj.tag)
@@ -52,6 +51,7 @@ public class PlayerManager : MonoBehaviour
                 playerStats.SetAttackDamage(playerStats.GetAttackDamage() + 0.3f);
                 playerStats.SetShotVelocity(playerStats.GetShotVelocity() + 0.2f);
                 playerStats.SetMaxHealth(playerStats.GetMaxHealth() + 1);
+                playerStats.SetCurrentHealth(playerStats.GetCurrentHealth() + 2);//reee 
                 FindObjectOfType<AudioManager>().Play("PowerUp");
                 uIManager.ShowPickupText("The Halo - ALL STATS UP");
                 return true;

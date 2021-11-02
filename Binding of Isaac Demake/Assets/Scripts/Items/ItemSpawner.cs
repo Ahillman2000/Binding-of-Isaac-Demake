@@ -15,7 +15,7 @@ public class ItemSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int index = isRandomized ? Random.Range(0, itemsToSpawn.Count) : 5;
+        int index = isRandomized ? Random.Range(0, itemsToSpawn.Count) : 0;
 
         if(itemsToSpawn.Count > 0)
         {
