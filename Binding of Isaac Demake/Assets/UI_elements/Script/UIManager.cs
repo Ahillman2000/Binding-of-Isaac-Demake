@@ -19,7 +19,8 @@ public class UIManager : MonoBehaviour
     private PlayerItems playerItems;
     private Monstro monstro;
     private GameManager gameManager;
-    [SerializeField] private int playerHealth, fullHealth, soulHealth, score, coins, bombs, keys, bossFullHealth, bossCurrentHealth;
+    [SerializeField] private int playerHealth, fullHealth, soulHealth, score, coins, bombs, keys;
+    [SerializeField] private float  bossFullHealth, bossCurrentHealth;
     [SerializeField] private string powerupInUse;
     private bool pickedUped = false; //check if need to display pickup text
     private bool haveBoss = false;

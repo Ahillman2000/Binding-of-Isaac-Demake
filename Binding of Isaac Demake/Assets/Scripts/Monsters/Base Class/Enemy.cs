@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    protected int health_ = 0;
+    protected float health_ = 0;
     protected int damage_ = 0;
 
     protected virtual void Start() {}

@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private float speed            = 3f;
 
-    [SerializeField] private float attackDamage     = 1.0f;
+    [SerializeField] private float attackDamage     = 3.5f;
 
     [SerializeField] private float damageMultiplier = 0f;
 
