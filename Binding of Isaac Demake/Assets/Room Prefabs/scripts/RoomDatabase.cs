@@ -21,6 +21,11 @@ public class RoomDatabase : MonoBehaviour
     private float waitTime = 1.5f;
     private bool spawnBoss;
 
+    [SerializeField]
+    private GameObject boss = null;
+    [SerializeField]
+    private GameObject player = null;
+
     private void Start()
     {
         SpawnFirst();
@@ -66,6 +71,18 @@ public class RoomDatabase : MonoBehaviour
                         }
                     }
                     spawnBoss = true;
+
+                    /// Instantiate boss 
+                    float xPos = RoomList[i].GetComponent<AddRoom>().transform.position.x;
+                    float yPos = RoomList[i].GetComponent<AddRoom>().transform.position.y;
+                    GameObject boss_ = Instantiate(boss, new Vector2(xPos, yPos), Quaternion.identity);
+                    boss_.transform.parent = RoomList[i].GetComponent<AddRoom>().transform;
+
+                    /// Configure target
+                    if (boss_.GetComponent<EnemyAi>() != null)
+                    {
+                        boss_.GetComponent<EnemyAi>().target = player.transform;
+                    }
                 }   
             }
         }
