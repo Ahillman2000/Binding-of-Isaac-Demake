@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     private GameObject player, gameManagerobj, boss;
     private PlayerStats playerStats;
     private PlayerItems playerItems;
+    private Monstro monstro;
     private GameManager gameManager;
     [SerializeField] private int playerHealth, fullHealth, soulHealth, score, coins, bombs, keys, bossFullHealth, bossCurrentHealth;
     [SerializeField] private string powerupInUse;
@@ -46,7 +47,8 @@ public class UIManager : MonoBehaviour
             {
                 boss = GameObject.FindGameObjectWithTag("Boss");
                 bossUI.SetActive(true);
-                //add code to get bossFullHealth
+                monstro = boss.GetComponent<Monstro>();
+                bossFullHealth = monstro.GetHealth();
                 slider.maxValue = bossFullHealth;
                 haveBoss = true; // so it won't constantly set boss
             }
@@ -58,7 +60,7 @@ public class UIManager : MonoBehaviour
         }
         if (haveBoss)
         {
-            //add code to get bossCurrentHealth
+            bossCurrentHealth = monstro.GetHealth();
             slider.value = bossCurrentHealth;
         }
     }

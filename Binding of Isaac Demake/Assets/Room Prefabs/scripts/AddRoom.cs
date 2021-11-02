@@ -45,18 +45,18 @@ public class AddRoom : MonoBehaviour
             }
         }
         enemy_count_per_room = enemyParent.transform.childCount;
-        if (roomInstance == roomType.BOSS || roomInstance == roomType.ITEM)
-        {
-            foreach (Transform child in enemyParent.transform)
-            {
-                Destroy(child); //make sure that no regular enemies can be found in boss or item room
-            }
-        }
     }
 
     private void Update()
     {
         enemy_count_per_room = enemyParent.transform.childCount;
+        if (roomInstance == roomType.BOSS || roomInstance == roomType.ITEM)
+        {
+            foreach (Transform child in enemyParent.transform)
+            {
+                Destroy(child.gameObject); //make sure that no regular enemies can be found in boss or item room
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
