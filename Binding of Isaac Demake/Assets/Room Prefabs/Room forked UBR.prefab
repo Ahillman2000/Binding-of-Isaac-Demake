@@ -2481,6 +2481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Room: {fileID: 8078834841499047991}
   RoomObj: {fileID: 8792089064283411281}
+  bossDoor: {fileID: 6761132567087961064, guid: 9d96998d451091a44be14560842abf4a, type: 3}
 --- !u!61 &3639525331083784070
 BoxCollider2D:
   m_ObjectHideFlags: 0
