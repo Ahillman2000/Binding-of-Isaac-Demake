@@ -40,6 +40,14 @@ public class TearProjectile : MonoBehaviour
 
     void Update()
     {
-        Destroy(this.gameObject, 3f);
+        Destroy(this.gameObject, 2f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -5,13 +5,7 @@ using Pathfinding;
 
 public class ActivatePathfinding : MonoBehaviour
 {
-    private AstarPath path;
     bool worldIsNotGenerated = true;
-
-    private void Start()
-    {
-        path = this.GetComponent<AstarPath>();
-    }
 
     void Update()
     {
@@ -25,6 +19,6 @@ public class ActivatePathfinding : MonoBehaviour
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(5F);
-        path.Scan(); /// Scans the level to generate the pathfinding navigation grid
+        AstarData.active.Scan(); /// Scans the level to configure the pathfinding navigation grid
     }
 }

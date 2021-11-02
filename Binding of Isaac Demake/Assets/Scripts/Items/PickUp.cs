@@ -22,9 +22,9 @@ public class PickUp : MonoBehaviour
            //playerScript.SetSpeed(playerScript.GetSpeed() + 1.0f);
             Destroy(gameObject);
         }*/
-      
+
         PlayerManager manager = collision.GetComponent<PlayerManager>();
-        if(manager)
+        if (manager)
         {
             bool pickedUp = manager.PickUpItem(gameObject);
             if (pickedUp)

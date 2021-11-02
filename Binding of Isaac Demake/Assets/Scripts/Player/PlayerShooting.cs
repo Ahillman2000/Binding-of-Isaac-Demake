@@ -32,7 +32,6 @@ public class PlayerShooting : MonoBehaviour
 
     private void DoAction(InputAction.CallbackContext obj)
     {
-        //Debug.Log("Action Done");
         if (playerStats.GetFireRate() == 0)
         {
             FireTear();
@@ -44,7 +43,7 @@ public class PlayerShooting : MonoBehaviour
                 nextFire = Time.time + playerStats.GetFireRate();
                 FireTear();
             }
-        }
+        }        
     }
 
     private void FireTear()

@@ -23,6 +23,7 @@ TagManager:
   - PooterProjectile
   - Door
   - BossDoor
+  - Wall
   layers:
   - Default
   - TransparentFX
