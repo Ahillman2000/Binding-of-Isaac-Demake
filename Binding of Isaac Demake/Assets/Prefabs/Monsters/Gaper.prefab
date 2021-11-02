@@ -181,6 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1f7918fed80ac4698ccbe67cd06a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinDrop: {fileID: 709442079009294789, guid: e15a533049be3334789387c4fedc0fcd, type: 3}
+  heartDrop: {fileID: 4759749929264927264, guid: 889010c560f2abf49aae696a16c12890, type: 3}
+  bombDrop: {fileID: 3536579202540650346, guid: bb57f4aeaf1440c47932614caf80c5f2, type: 3}
 --- !u!1 &5990185435186797920
 GameObject:
   m_ObjectHideFlags: 0

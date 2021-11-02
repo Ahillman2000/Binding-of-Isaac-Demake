@@ -114,7 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 3912378507575375064, guid: 487f7c21e69f5514bbca3f47c9e66051, type: 3}
-  fireRate: 1.5
 --- !u!1 &5660636783593482625
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,3 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5427b865cb2fbc34da490f2db697a857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinDrop: {fileID: 709442079009294789, guid: e15a533049be3334789387c4fedc0fcd, type: 3}
+  heartDrop: {fileID: 4759749929264927264, guid: 889010c560f2abf49aae696a16c12890, type: 3}
+  bombDrop: {fileID: 3536579202540650346, guid: bb57f4aeaf1440c47932614caf80c5f2, type: 3}

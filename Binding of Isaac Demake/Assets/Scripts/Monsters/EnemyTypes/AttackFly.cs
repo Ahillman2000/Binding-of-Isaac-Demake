@@ -10,7 +10,9 @@ public class AttackFly : Enemy
 
     private Color RED = new Color(0.78F, 0, 0, 0.8F);
 
-    public GameObject lootDrop;
+    public GameObject coinDrop;
+    public GameObject heartDrop;
+    public GameObject bombDrop;
 
     protected override void Start()
     {
@@ -41,10 +43,21 @@ public class AttackFly : Enemy
 
     protected override void Die() 
     {
+        if (Random.value > 0.5)
+        {
+            Instantiate(coinDrop, transform.position, Quaternion.identity);
+        }   //50% = 0.5, 80% = 0.2, 30% = 0.7
+
+        if (Random.value > 0.6)
+        {
+            Instantiate(heartDrop, transform.position + transform.up, Quaternion.identity);
+        }   //50% = 0.5, 80% = 0.2, 30% = 0.7
+
         if (Random.value > 0.7)
         {
-            Instantiate(lootDrop, transform.position, Quaternion.identity);
+            Instantiate(bombDrop, transform.position - transform.up, Quaternion.identity);
         }   //50% = 0.5, 80% = 0.2, 30% = 0.7
+
         Destroy(gameObject);
     }
 
