@@ -1160,6 +1160,7 @@ MonoBehaviour:
   bossFullHealth: 0
   bossCurrentHealth: 0
   powerupInUse: 
+  bossRoom: {fileID: 0}
 --- !u!1 &8775159240242571131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,7 +1616,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.100006, y: -187.7362}
+  m_AnchoredPosition: {x: 19.100037, y: -195.7362}
   m_SizeDelta: {x: 12.8745, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8775159241201219598
@@ -1691,7 +1692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.100006, y: -114.38721}
+  m_AnchoredPosition: {x: 19.100037, y: -122.38721}
   m_SizeDelta: {x: 12.8745, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8775159241546579846
@@ -2000,7 +2001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.100006, y: -150}
+  m_AnchoredPosition: {x: 19.100037, y: -158}
   m_SizeDelta: {x: 12.8745, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8775159242033112017

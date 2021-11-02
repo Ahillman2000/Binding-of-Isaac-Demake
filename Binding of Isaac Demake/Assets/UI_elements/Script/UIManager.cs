@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private int playerHealth, fullHealth, soulHealth, score, coins, bombs, keys, bossFullHealth, bossCurrentHealth;
     [SerializeField] private string powerupInUse;
     private bool pickedUped = false; //check if need to display pickup text
+    public GameObject bossRoom;
+    private AddRoom addRoom;
     private bool haveBoss = false;
 
     // Start is called before the first frame update
@@ -41,28 +43,7 @@ public class UIManager : MonoBehaviour
         UpdateHealth();
         UpdateCollectables();
         UpdateScore();
-        if (GameObject.FindGameObjectWithTag("Boss") != null)
-        {
-            if (!haveBoss)
-            {
-                boss = GameObject.FindGameObjectWithTag("Boss");
-                bossUI.SetActive(true);
-                monstro = boss.GetComponent<Monstro>();
-                bossFullHealth = monstro.GetHealth();
-                slider.maxValue = bossFullHealth;
-                haveBoss = true; // so it won't constantly set boss
-            }
-        }
-        else
-        {
-            bossUI.SetActive(false);
-            haveBoss = false;
-        }
-        if (haveBoss)
-        {
-            bossCurrentHealth = monstro.GetHealth();
-            slider.value = bossCurrentHealth;
-        }
+        UpdateBossUI();
     }
 
     private void UpdateHealth()
@@ -203,5 +184,51 @@ public class UIManager : MonoBehaviour
             scoreText.text = "00000" + score.ToString();
         }
 
+    }
+
+    private void UpdateBossUI()
+    {
+        if (bossRoom == null)
+        {
+            foreach (GameObject room in GameObject.FindGameObjectsWithTag("Rooms"))
+            {
+                if (room.GetComponent<AddRoom>().roomInstance == AddRoom.roomType.BOSS)
+                {
+                    bossRoom = room; //put in update instead of start because generation takes time
+                    addRoom = bossRoom.GetComponent<AddRoom>();
+                }
+            }
+        }
+        if (GameObject.FindGameObjectWithTag("Boss") != null)
+        {
+            if (!haveBoss)
+            {
+                boss = GameObject.FindGameObjectWithTag("Boss");
+                monstro = boss.GetComponent<Monstro>();
+                bossFullHealth = monstro.GetHealth();
+                slider.maxValue = bossFullHealth;
+                haveBoss = true; // so it won't constantly set boss
+            }
+        }
+        else
+        {
+            haveBoss = false;
+        }
+        if (addRoom != null)
+        {
+            if (addRoom.visited && haveBoss)
+            {
+                bossUI.SetActive(true);
+            }
+            else
+            {
+                bossUI.SetActive(false);
+            }
+        }
+        if (haveBoss)
+        {
+            bossCurrentHealth = monstro.GetHealth();
+            slider.value = bossCurrentHealth;
+        }
     }
 }
