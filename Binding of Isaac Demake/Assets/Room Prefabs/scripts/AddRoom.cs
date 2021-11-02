@@ -38,10 +38,9 @@ public class AddRoom : MonoBehaviour
             if (child.tag == "Enemy")
             {
                 child.transform.parent = enemyParent.transform;
-                enemy_count_per_room = enemyParent.transform.childCount;
             }
         }
-
+        enemy_count_per_room = enemyParent.transform.childCount;
     }
 
     private void Update()
@@ -50,10 +49,10 @@ public class AddRoom : MonoBehaviour
         {
             if (child.tag == "Enemy")
             {
-                enemy_count_per_room = enemyParent.transform.childCount;
+                //enemy_count_per_room = gameObject.transform.childCount;
             }
         }
-
+        enemy_count_per_room = enemyParent.transform.childCount;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

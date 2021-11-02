@@ -20,6 +20,17 @@ public class OpenDoors : MonoBehaviour
                 {
                     Destroy(child.gameObject);
                 }
+                if (child.name == "RoomSpawnPoints")
+                {
+                    Transform p = child;
+                    foreach (Transform d in p)
+                    {
+                        if (d.tag == "Door")
+                        {
+                            Destroy(d.gameObject);
+                        }
+                    }
+                }
             }
         }
     }

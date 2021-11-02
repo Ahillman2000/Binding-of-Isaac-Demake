@@ -25,11 +25,21 @@ public class EnemySpawner : MonoBehaviour
 
     private int room_capacity = 3;
 
+    private Transform enemyP; //fix for room-enemy detection, by Stephanie
+
    
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         Vector2 spawner_pos = transform.position;
+
+        foreach (Transform child in gameObject.transform)
+        {
+            if (child.name == "GameObject")
+            {
+                enemyP = child;
+            }
+        }
 
         /// If player is within spawn room then spawn no enemies (dumb fix) Uhhhh? Literally the opposite of how the game works?
         /*if (player.transform.position == this.transform.position)
@@ -55,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
 
                     /// Instantiate enemy and to container list
                     GameObject enemy_inst = Instantiate(enemy[i].prefab, new Vector2(random_pos.x, random_pos.y), Quaternion.identity);
-                    enemy_inst.transform.parent = transform;
+                    enemy_inst.transform.parent = enemyP;
                     enemy_inst.GetComponent<EnemyAi>().target = player.transform;
                     enemy_container.Add(enemy_inst);
                 }
@@ -77,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
 
                 /// Instantiate enemy and to container list
                 GameObject enemy_inst = Instantiate(random_enemy[random_index], new Vector2(random_pos.x, random_pos.y), Quaternion.identity);
-                enemy_inst.transform.parent = transform;
+                enemy_inst.transform.parent = enemyP;
 
                 if (enemy_inst.GetComponent<EnemyAi>() != null)
                 {
