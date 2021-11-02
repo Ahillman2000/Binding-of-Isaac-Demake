@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Gaper : Enemy
 {
+    public GameObject coinDrop;
+    public GameObject heartDrop;
+    public GameObject bombDrop;
+
     protected override void Start()
     {
         //base.Start();
@@ -28,6 +32,21 @@ public class Gaper : Enemy
 
     protected override void Die()
     {
+        if (Random.value > 0.5)
+        {
+            Instantiate(coinDrop, transform.position, Quaternion.identity);
+        }   //50% = 0.5, 80% = 0.2, 30% = 0.7
+
+        if (Random.value > 0.6)
+        {
+            Instantiate(heartDrop, transform.position + transform.up, Quaternion.identity);
+        }   //50% = 0.5, 80% = 0.2, 30% = 0.7
+
+        if (Random.value > 0.7)
+        {
+            Instantiate(bombDrop, transform.position - transform.up, Quaternion.identity);
+        }   //50% = 0.5, 80% = 0.2, 30% = 0.7
+
         Destroy(gameObject);
     }
 
