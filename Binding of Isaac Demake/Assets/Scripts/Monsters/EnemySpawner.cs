@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -19,19 +20,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] random_enemy = null;
 
-    // Enemy[] enemy 
     private GameObject player;
-    private List<GameObject> enemy_container = new List<GameObject>();
-
-    private int room_capacity = 3;
-
     private Transform enemyP; //fix for room-enemy detection, by Stephanie
-
+    private List<GameObject> enemy_container = new List<GameObject>();
+    private int room_capacity = 0;
    
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         Vector2 spawner_pos = transform.position;
+        room_capacity = Random.Range(1, 4);
 
         foreach (Transform child in gameObject.transform)
         {
@@ -40,16 +38,6 @@ public class EnemySpawner : MonoBehaviour
                 enemyP = child;
             }
         }
-
-        /// If player is within spawn room then spawn no enemies (dumb fix) Uhhhh? Literally the opposite of how the game works?
-        /*if (player.transform.position == this.transform.position)
-        {
-            room_capacity = 0;
-        } 
-        else 
-        { 
-            room_capacity = Random.Range(0, 4); 
-        }*/
 
         /// Custom Enemy Instantiation
         for (int i = 0; i < enemy.Length; i++)
@@ -92,6 +80,10 @@ public class EnemySpawner : MonoBehaviour
                 if (enemy_inst.GetComponent<EnemyAi>() != null)
                 {
                     enemy_inst.GetComponent<EnemyAi>().target = player.transform;
+                }
+                if (enemy_inst.GetComponent<AIDestinationSetter>() != null)
+                {
+                    enemy_inst.GetComponent<AIDestinationSetter>().target = player.transform;
                 }
                 enemy_container.Add(enemy_inst);
             }
