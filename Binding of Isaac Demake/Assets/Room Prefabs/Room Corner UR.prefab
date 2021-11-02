@@ -2308,7 +2308,9 @@ MonoBehaviour:
   enemy: []
   random_enemy:
   - {fileID: 6975984791201948564, guid: a6920367a7182a9419f2d302dddbcd41, type: 3}
+  - {fileID: 1164194341115341714, guid: c9f989e57a0a44e43bd3c62149f4be0c, type: 3}
   - {fileID: 5660636783593482625, guid: 07856c339d37171439eb5a4363db1ddb, type: 3}
+  - {fileID: 1039086809234233347, guid: 7b5fa8ff44a86024bba8b055b0f537c3, type: 3}
 --- !u!114 &5606297335401419716
 MonoBehaviour:
   m_ObjectHideFlags: 0
