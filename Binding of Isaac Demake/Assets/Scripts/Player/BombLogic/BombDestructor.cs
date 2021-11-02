@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BombDestructor : MonoBehaviour
 {
+    [SerializeField] bool playerIn = false;
+    [SerializeField] bool bossIn   = false;
+
     [SerializeField] public GameObject gameObj;
 
     [SerializeField] public float explosionTimerCD = 3.0f;
@@ -11,44 +14,44 @@ public class BombDestructor : MonoBehaviour
 
     [SerializeField] public bool isExploded = false;
 
-    Collider2D[] inExplosionRadius = null;
-    [SerializeField] public float ExplosionForceMulti = 2.0f;
-    [SerializeField] public float ExplosionRadius = 2.0f;
-
     GameObject player;
+    GameObject boss;
     PlayerStats playerStats;
+    Monstro monstro;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        boss = GameObject.FindGameObjectWithTag("Boss");
         playerStats = player.GetComponent<PlayerStats>();
+        monstro = boss.GetComponent<Monstro>();
     }
-
-    void Explode()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        inExplosionRadius = Physics2D.OverlapCircleAll(transform.position, ExplosionRadius);
-
-        foreach (Collider2D o in inExplosionRadius)
+        if (other.tag == "Player")
         {
-            Rigidbody2D o_rigidbody = o.GetComponent<Rigidbody2D>();
-            if(o_rigidbody != null)
-            {
-                Vector2 distanceVector = o.transform.position - transform.position;
-                if(distanceVector.magnitude > 0 )
-                {
-                    /*float explosionForce = ExplosionForceMulti / distanceVector.magnitude;
-                    o_rigidbody.AddForce(distanceVector.normalized * explosionForce);
-                    Invoke("NegateForce", 2f);
-                    CancelInvoke();*/
-                    playerStats.TakeDamage(2);
-
-                }
-            }
+            playerIn = true;
+            Debug.Log("player in");
+            
+        }
+        if (other.tag == "Boss")
+        {
+            bossIn = true;
+            Debug.Log("boss in");
+           
         }
     }
-
-    private void OnDrawGizmos()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Gizmos.DrawWireSphere(transform.position, ExplosionRadius);
+        if (other.tag == "Player")
+        {
+            playerIn = false;
+            Debug.Log("player out");
+        }
+        if (other.tag == "Boss")
+        {
+            bossIn = false;
+            Debug.Log("boss out");
+        }
     }
     void Update()
     {
@@ -64,12 +67,29 @@ public class BombDestructor : MonoBehaviour
             explosionTimer -= Time.deltaTime;
             if (explosionTimer <= 0 && isExploded)
             {
-                FindObjectOfType<AudioManager>().Play("Explosion");
-                Destroy(gameObj);
-                Explode();
-                explosionTimer = explosionTimerCD;
-                isExploded = false;
-                
+                if (playerIn)
+                {
+                    playerStats.TakeDamage(2);
+                    FindObjectOfType<AudioManager>().Play("Explosion");
+                    Destroy(gameObj);
+                    explosionTimer = explosionTimerCD;
+                    isExploded = false;
+                }
+                if (bossIn)
+                {
+                    monstro.SetHealth(monstro.GetHealth() - 50);
+                    FindObjectOfType<AudioManager>().Play("Explosion");
+                    Destroy(gameObj);
+                    explosionTimer = explosionTimerCD;
+                    isExploded = false;
+                }
+                else
+                {
+                    FindObjectOfType<AudioManager>().Play("Explosion");
+                    Destroy(gameObj);
+                    explosionTimer = explosionTimerCD;
+                    isExploded = false;
+                }
             }
         }
     }

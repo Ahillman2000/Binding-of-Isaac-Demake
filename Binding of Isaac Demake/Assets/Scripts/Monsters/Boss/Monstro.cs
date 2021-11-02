@@ -9,7 +9,7 @@ public class Monstro : Enemy
     protected override void Start()
     {
         //base.Start();
-        health_ = 5000;
+        health_ = 500;
         damage_ = 50;
 
         playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
@@ -40,11 +40,11 @@ public class Monstro : Enemy
         // If Monstro hit by player projectile
         if (collision.tag == "Projectile") 
         {
-            health_ -= 100;
+            health_ -= playerStats.GetAttackDamage();
             Destroy(collision.gameObject);
         }
 
-        // If Monstro collides with player
+        // If Monstro collides with player EDIT by vlad - BRUH put a timer on that, you are taking 2 dmg every frame :D
         if(collision.tag == "Player")
         {
             playerStats.TakeDamage(2);
@@ -67,8 +67,12 @@ public class Monstro : Enemy
         }
     }
 
-    public int GetHealth()
+    public float GetHealth()
     {
         return health_;
+    }
+    public void SetHealth(float _Health)
+    {
+        health_ = _Health;
     }
 }
