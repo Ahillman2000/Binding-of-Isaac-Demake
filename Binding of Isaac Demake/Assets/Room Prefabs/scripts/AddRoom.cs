@@ -29,6 +29,10 @@ public class AddRoom : MonoBehaviour
         {
             roomInstance = roomType.EMPTY;
         }
+        if (roomInstance == roomType.EMPTY)
+        {
+            roomInstance = roomType.ENEMY; // make every empty rooms into enemy rooms
+        }
         
         rooms.RoomList.Add(this.gameObject);
         rooms.RoomList[0].GetComponent<AddRoom>().roomInstance = roomType.EMPTY;
@@ -41,6 +45,13 @@ public class AddRoom : MonoBehaviour
             }
         }
         enemy_count_per_room = enemyParent.transform.childCount;
+        if (roomInstance == roomType.BOSS || roomInstance == roomType.ITEM)
+        {
+            foreach (Transform child in enemyParent.transform)
+            {
+                Destroy(child); //make sure that no regular enemies can be found in boss or item room
+            }
+        }
     }
 
     private void Update()
