@@ -10,12 +10,17 @@ public class OpenDoors : MonoBehaviour
     private GameObject RoomObj;
     [SerializeField]
     private KeyUnlock bossDoor;
+    private bool sounded = false;
 
     void Update()
     {
         if (Room.visited == true && Room.enemy_count_per_room == 0)
         {
-            
+            if (Room.roomInstance != AddRoom.roomType.EMPTY && !sounded)
+            {
+                FindObjectOfType<AudioManager>().Play("Doors");
+                sounded = true;
+            }
             foreach (Transform child in RoomObj.transform)
             {
                 if (child.tag == "Door")
@@ -29,7 +34,6 @@ public class OpenDoors : MonoBehaviour
                     {
                         if (d.tag == "Door")
                         {
-                            FindObjectOfType<AudioManager>().Play("Doors");
                             Destroy(d.gameObject);
                         }
                     }
