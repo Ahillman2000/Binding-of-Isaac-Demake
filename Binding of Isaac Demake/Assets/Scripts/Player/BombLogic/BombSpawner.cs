@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BombSpawner : MonoBehaviour
 {
@@ -9,6 +10,19 @@ public class BombSpawner : MonoBehaviour
     private BombDestructor bombDestructor;
 
     PlayerItems playerItems;
+
+    private PlayerInputActions playerInputActions;
+
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        playerInputActions.Player.Bomb.performed += SpawnBomb;
+        playerInputActions.Player.Bomb.Enable();
+    }
 
     void Start()
     {
@@ -24,26 +38,35 @@ public class BombSpawner : MonoBehaviour
 
         }
 
-        if (playerItems.GetBombs() > 0)
+        /*(if (playerItems.GetBombs() > 0)
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                SpawnBomb();
-            }
+            OnEnable();
         }
+        else
+        {
+            OnDisable();
+        }*/
        
     }
 
 
-    void SpawnBomb()
+    private void SpawnBomb(InputAction.CallbackContext obj)
     {
-        Instantiate(bombToSpawn, transform.position, Quaternion.identity);
-        bombDestructor.isExploded = true;
-        playerItems.SetBombs(playerItems.GetBombs() - 1);
+        if (playerItems.GetBombs() > 0)
+        {
+            Instantiate(bombToSpawn, transform.position, Quaternion.identity);
+            bombDestructor.isExploded = true;
+            playerItems.SetBombs(playerItems.GetBombs() - 1);
+        }
     }
     
     void BombExplode()
     {
 
+    }
+
+    private void OnDisable()
+    {
+        playerInputActions.Player.Bomb.Disable();
     }
 }

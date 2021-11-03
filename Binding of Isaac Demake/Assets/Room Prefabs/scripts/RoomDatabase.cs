@@ -41,7 +41,7 @@ public class RoomDatabase : MonoBehaviour
     {
         if (waitTime <= 0 && spawnBoss == false)
         {
-            rand = Random.Range(1, RoomList.Count);
+            rand = Random.Range(1, RoomList.Count -1);
 
             RoomList[rand].GetComponent<AddRoom>().roomInstance = AddRoom.roomType.ITEM;
             RoomList[rand].GetComponent<AddRoom>().itemSpawner.GetComponent<ItemSpawner>().enabled = true;

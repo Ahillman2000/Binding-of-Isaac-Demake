@@ -6,6 +6,8 @@ public class Monstro : Enemy
 {
     private PlayerStats playerStats;
 
+    [SerializeField] GameObject ladderPrefab;
+
     protected override void Start()
     {
         //base.Start();
@@ -32,6 +34,8 @@ public class Monstro : Enemy
 
     protected override void Die()
     {
+        // spawn hole with ladder on boss transform
+        Instantiate(ladderPrefab, this.transform.position, this.transform.rotation);
         Destroy(gameObject);
     }
 

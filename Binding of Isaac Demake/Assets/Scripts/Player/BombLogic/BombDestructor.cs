@@ -6,6 +6,7 @@ public class BombDestructor : MonoBehaviour
 {
     [SerializeField] bool playerIn = false;
     [SerializeField] bool bossIn   = false;
+    
 
     [SerializeField] public GameObject gameObj;
 
@@ -83,6 +84,7 @@ public class BombDestructor : MonoBehaviour
                     explosionTimer = explosionTimerCD;
                     isExploded = false;
                 }
+
                 else
                 {
                     FindObjectOfType<AudioManager>().Play("Explosion");

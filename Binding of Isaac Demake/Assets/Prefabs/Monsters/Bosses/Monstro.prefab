@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d241c0040e1a78f4a8cd11f38b1ff19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ladderPrefab: {fileID: 1837339160042827900, guid: 7695c394e9b312948a3d946a18217a99, type: 3}
 --- !u!1 &8682421356045392599
 GameObject:
   m_ObjectHideFlags: 0
