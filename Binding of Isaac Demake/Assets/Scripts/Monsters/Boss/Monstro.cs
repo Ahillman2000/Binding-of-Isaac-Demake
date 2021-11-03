@@ -9,7 +9,7 @@ public class Monstro : Enemy
     protected override void Start()
     {
         //base.Start();
-        health_ = 500;
+        health_ = 100;
         damage_ = 50;
 
         playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();

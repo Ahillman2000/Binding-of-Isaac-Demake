@@ -8,11 +8,15 @@ public class BlackFly : Enemy
     public GameObject heartDrop;
     public GameObject bombDrop;
 
+    private PlayerStats playerStats;
+
     protected override void Start()
     {
         //base.Start();
         health_ = 50;
         damage_ = 0;
+
+        playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
     }
 
     protected override void Update()
@@ -56,6 +60,14 @@ public class BlackFly : Enemy
         {
             health_ -= 50;
             Destroy(collision.gameObject);
+        }
+
+        if (collision.tag == "Player")
+        {
+            if (playerStats.GetCurrentHealth() > 0)
+            {
+                playerStats.TakeDamage(1); // handle in player script?
+            }
         }
     }
 }

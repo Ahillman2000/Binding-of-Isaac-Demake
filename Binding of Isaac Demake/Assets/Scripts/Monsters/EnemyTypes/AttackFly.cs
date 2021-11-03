@@ -68,22 +68,6 @@ public class AttackFly : Enemy
             if(playerStats.GetCurrentHealth() > 0)
             {
                 playerStats.TakeDamage(1); // handle in player script?
-                //uIManager.playerHealth -= 1; // handle in UI script?
-
-                //player.GetComponent<Rigidbody2D>().velocity *= -1;
-
-                // Handle in player script too?
-                /// Player Pushback upon damage
-                /*Vector2 pushForce = new Vector2(300, 300);
-                if(player.transform.position.x > this.transform.position.x)
-                {
-                    pushForce.x = -pushForce.x;
-                }
-                player.GetComponent<Rigidbody2D>().AddForce(pushForce);*/
-
-
-                /*Vector2 new_position = new Vector2(1.0f, 0f) + (Vector2)player.GetComponent<Rigidbody2D>().transform.position;
-                player.GetComponent<Rigidbody2D>().transform.position = new_position;*/
             }
         }
 
