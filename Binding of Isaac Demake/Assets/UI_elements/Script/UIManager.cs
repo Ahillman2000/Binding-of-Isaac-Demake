@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     private Monstro monstro;
     private GameManager gameManager;
     [SerializeField] private int playerHealth, fullHealth, soulHealth, score, coins, bombs, keys;
-    [SerializeField] private float bossFullHealth, bossCurrentHealth;
+    //[SerializeField] private float bossFullHealth, bossCurrentHealth;
     [SerializeField] private string powerupInUse;
     private bool pickedUped = false; //check if need to display pickup text
     private GameObject bossRoom;
@@ -206,9 +206,11 @@ public class UIManager : MonoBehaviour
             {
                 boss = GameObject.FindGameObjectWithTag("Boss");
                 monstro = boss.GetComponent<Monstro>();
-                bossFullHealth = monstro.GetHealth();
-                slider.maxValue = bossFullHealth;
+                slider.maxValue = monstro.GetHealth();
                 haveBoss = true; // so it won't constantly set boss
+            }else if (slider.maxValue == 0)
+            {
+                slider.maxValue = monstro.GetHealth();
             }
         }
         else
@@ -228,8 +230,7 @@ public class UIManager : MonoBehaviour
         }
         if (haveBoss)
         {
-            bossCurrentHealth = monstro.GetHealth();
-            slider.value = bossCurrentHealth;
+            slider.value = monstro.GetHealth();
         }
     }
 }
